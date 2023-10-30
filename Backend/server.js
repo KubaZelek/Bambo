@@ -21,3 +21,4 @@ connection.query('SELECT 1 + 1 AS solution', (err, rows, fields) => {
 connection.end()
 
 app.listen(PORT , () => console.log("Working on port "+PORT))
+
