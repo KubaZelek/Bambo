@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { React } from "react";
 import axios from 'axios';
 
 function Signup(){
@@ -26,7 +27,7 @@ function Signup(){
                 <input type="text" name="password" placeholder="Wpisz hasło" onChange={handleChange} />
                 <label htmlFor="email">E-mail</label>
                 <input type="text" name="email" placeholder="Wpisz e-mail" onChange={handleChange} />
-                <button type="submit" onChange={handleChange}></button>
+                <button type="submit" onChange={handleSubmit}></button>
             </form>
         </div>
     );
