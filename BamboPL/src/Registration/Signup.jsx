@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { React } from "react";
 import axios from 'axios';
+
 
 function Signup(){
     const [values, setValues] = useState({
@@ -27,7 +27,7 @@ function Signup(){
                 <input type="text" name="password" placeholder="Wpisz hasło" onChange={handleChange} />
                 <label htmlFor="email">E-mail</label>
                 <input type="text" name="email" placeholder="Wpisz e-mail" onChange={handleChange} />
-                <button type="submit" onChange={handleSubmit}></button>
+                <button type="submit">Zarejestruj</button>
             </form>
         </div>
     );
