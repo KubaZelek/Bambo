@@ -1,12 +1,14 @@
 import './App.css'
+import Login from './Registration/Login'
 import Signup from './Registration/Signup'
+Login
 
 function App() {
   
 
   return (
     <div>
-        <Signup />
+        <Login />
     </div>
   )
 }
