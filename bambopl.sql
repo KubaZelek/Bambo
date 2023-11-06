@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `auctions` (
   `id` int(11) NOT NULL,
   `title` int(11) NOT NULL,
+  `photo` varchar(150) NOT NULL,
   `price` double(5,2) NOT NULL,
   `description` text NOT NULL,
   `sold_by` varchar(120) NOT NULL,

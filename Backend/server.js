@@ -74,4 +74,16 @@ function generateJwtToken(username) {
   // return token;
 }
 
-
+app.post('/create_auction', async (req, res) => {
+  const sql = "INSERT INTO users (`username`,`password`,`email`) VALUES (?, ? ,?)";
+  const username = req.body.username;
+  const password = req.body.password;
+  const email = req.body.email;
+  connection.query(sql, [username, password, email], (err, data) => {
+    if(err) {
+      console.error("SQL ERROR: " + err);
+      return res.status(500).json(err);
+    }
+    return res.json(data);
+  });  
+})
