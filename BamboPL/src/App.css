@@ -4,3 +4,17 @@
   align-items: center;
   flex-direction: column;
 }
+
+.Login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.CreateAuction{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

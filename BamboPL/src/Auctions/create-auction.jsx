@@ -4,7 +4,7 @@ import axios from 'axios';
 function CreateAuction() {
   const [values, setValues] = useState({
     title: '',
-    photo: '',
+    //photo: '',
     price: '',
     description: ''
   });
@@ -25,14 +25,14 @@ function CreateAuction() {
 
   return (
     <div className="CreateAuction">
-      <h1>Rejestracja</h1>
+      <h1>Dodaj ogloszenie</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Nazwa przedmiotu</label>
         <input type="text" name="title" placeholder="Wpisz nazwę" onChange={handleChange} />
         <label htmlFor="photo">Zdjęcie przedmiotu</label>
         <input type="file" name="photo" accept="image/png, image/jpeg" onChange={handleChange} />
         <label htmlFor="price">Cena</label>
-        <input type="text" name="price" placeholder="Wpisz cenę" onChange={handleChange} />
+        <input type="number" name="price" placeholder="Wpisz cenę [zł]" min='0' onChange={handleChange} />
         <label htmlFor="desc">Dodaj opis</label>
         <textarea name="description" placeholder="Opisz przedmiot" onChange={handleChange} />
         <button type="submit">Dodaj ogłoszenie</button>

@@ -1,14 +1,14 @@
 import './App.css'
-import Login from './Registration/Login'
-import Signup from './Registration/Signup'
-Login
+import CreateAuction from './Auctions/create-auction'
+//import Login from './Registration/Login'
+//import Signup from './Registration/Signup'
 
 function App() {
   
 
   return (
     <div>
-        <Login />
+        <CreateAuction />
     </div>
   )
 }

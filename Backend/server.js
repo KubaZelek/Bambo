@@ -75,12 +75,12 @@ function generateJwtToken(username) {
 }
 
 app.post('/create_auction', async (req, res) => {
-  const sql = "INSERT INTO auctions (`title`,`photo`,`price`,`description`) VALUES (?, ? ,?, ? )";
+  const sql = "INSERT INTO auctions (`title`,`price`,`description`) VALUES (?, ?, ?)";
   const title = req.body.title;
-  const photo = req.body.photo;
+  //const photo = req.body.photo;
   const price = req.body.price;
   const description = req.body.description;
-  connection.query(sql, [title, photo, price, description], (err, data) => {
+  connection.query(sql, [title, price, description], (err, data) => {
     if(err) {
       console.error("SQL ERROR: " + err);
       return res.status(500).json(err);
