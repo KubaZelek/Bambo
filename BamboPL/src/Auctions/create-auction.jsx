@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function Signup() {
+function CreateAuction() {
   const [values, setValues] = useState({
-    username: '',
-    password: '',
-    email: '',
+    title: '',
+    photo: '',
+    price: '',
+    description: ''
   });
   const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
@@ -23,19 +24,21 @@ function Signup() {
   };
 
   return (
-    <div className="Signup">
+    <div className="CreateAuction">
       <h1>Rejestracja</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Nazwa użytkownika</label>
-        <input type="text" name="username" placeholder="Wpisz nazwę" onChange={handleChange} />
-        <label htmlFor="password">Hasło</label>
-        <input type="password" name="password" placeholder="Wpisz hasło" onChange={handleChange} />
-        <label htmlFor="email">E-mail</label>
-        <input type="text" name="email" placeholder="Wpisz e-mail" onChange={handleChange} />
-        <button type="submit">Zarejestruj</button>
+        <label htmlFor="title">Nazwa przedmiotu</label>
+        <input type="text" name="title" placeholder="Wpisz nazwę" onChange={handleChange} />
+        <label htmlFor="photo">Zdjęcie przedmiotu</label>
+        <input type="file" name="photo" accept="image/png, image/jpeg" onChange={handleChange} />
+        <label htmlFor="price">Cena</label>
+        <input type="text" name="price" placeholder="Wpisz cenę" onChange={handleChange} />
+        <label htmlFor="desc">Dodaj opis</label>
+        <textarea name="description" placeholder="Opisz przedmiot" onChange={handleChange} />
+        <button type="submit">Dodaj ogłoszenie</button>
       </form>
     </div>
   );
 }
 
-export default Signup;
+export default CreateAuction;
