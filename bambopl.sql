@@ -34,6 +34,7 @@ CREATE TABLE `auctions` (
   `description` text NOT NULL,
   `sold_by` varchar(120) NOT NULL,
   `users_id` int(11) NOT NULL,
+  `promotion` enum('0','1') NOT NULL,
   `au_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -88,12 +89,6 @@ ALTER TABLE `users`
 -- Constraints for dumped tables
 --
 
---
--- Constraints for table `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id`) REFERENCES `auctions` (`users_id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
