@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `auctions` (
   `id` int(11) NOT NULL,
-  `title` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
   `photo` varchar(150) NOT NULL,
   `price` double(5,2) NOT NULL,
-  `description` text NOT NULL,
+  `description` text ,
   `sold_by` varchar(120) NOT NULL,
   `users_id` int(11) NOT NULL,
   `promotion` enum('0','1') NOT NULL,
