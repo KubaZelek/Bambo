@@ -7,6 +7,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Text from './components/Text'
 import RecentlyAdded from './components/recentlyAdded'
+import Promotion from './components/Promotion'
 
 function App() {
   
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
     <Navbar/>
+    <Promotion/>
     <RecentlyAdded/>
     </>
   )
