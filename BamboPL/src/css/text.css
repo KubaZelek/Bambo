@@ -1,0 +1,7 @@
+.text h1{
+    font-size: 3rem;
+    color: #007bff;
+    width: 70%;
+    border-bottom: 3px solid #007bff;
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.1);
+}

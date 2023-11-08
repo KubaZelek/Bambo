@@ -1,0 +1,91 @@
+body{
+  font-family: 'Lato', sans-serif;
+}
+.navbar{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #007bff;
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+img{
+    width: 15%;
+   
+}
+/* Searchbar */
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 30%;
+}
+
+.search-bar {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid #ccc;
+
+  margin-right: 2%;
+  font-size: 1.2rem;
+  outline: none;
+}
+.search-button {
+  padding: 1.1rem 2rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  font-size: 1.2rem;
+}
+.links{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center !important; 
+/* TU SIE COS ZWALILO */
+}
+.image, .image1{
+  width: 40%;
+}
+
+.link{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 50%;
+}
+.hp, .do {
+  padding: 0 2rem 0 2rem;
+  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #007bff;
+  font-weight: bold;
+  position: relative;
+  text-decoration: none;
+}
+
+.hp::before, .do::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.5s ease-in-out;
+}
+
+.hp:hover::before, .do:hover::before {
+  width: 100%; 
+  left: 0; 
+}
+.do{
+  margin-top: 1rem;
+}
