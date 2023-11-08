@@ -3,8 +3,19 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const cors = require('cors');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
+
 app.use(cors());
 app.use(express.json());
+app.use(fileUpload());
+app.use(session({
+  secret: 'KochamBambo', // Sekret sesji
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(express.static('public'));
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -22,6 +33,8 @@ connection.query('SELECT 1 + 1 AS solution', (err, rows, fields) => {
 
 app.listen(PORT , () => console.log("Working on port "+PORT))
 
+//Rejestracja
+
 app.post('/signup', async (req, res) => {
   const sql = "INSERT INTO users (`username`,`password`,`email`) VALUES (?, ? ,?)";
   const username = req.body.username;
@@ -35,6 +48,8 @@ app.post('/signup', async (req, res) => {
     return res.json(data);
   });  
 })
+
+//Logowanie
 
 app.post('/login', async (req, res) => {
   const username = req.body.username;
@@ -52,54 +67,38 @@ app.post('/login', async (req, res) => {
     if (user.password !== password) {
       return res.status(401).json({ message: "Nieprawidłowa nazwa użytkownika lub hasło." });
     }
+
+    // Zapisz informacje o użytkowniku w sesji
+    req.session.user = user;
+
     // Ustaw sesję lub token uwierzytelniający dla użytkownika
     // Tu możesz użyć rozwiązań do zarządzania sesją lub tokenami, takie jak Express Session, Passport, JWT itp.
     // Przykładowo, można użyć JWT do generowania i przesyłania tokena użytkownika w odpowiedzi
-
     const jwtToken = generateJwtToken(user.username);
     res.status(200).json({ message: "Zalogowano pomyślnie", token: jwtToken });
   });
 });
 
-function generateJwtToken(username) {
-  // Tutaj generujesz token JWT na podstawie nazwy użytkownika
-  // i zwracasz go jako string
-  // Możesz użyć biblioteki jsonwebtoken do generowania tokenów JWT
-  // np. const jwt = require('jsonwebtoken');
-
-  // Przykład generowania tokena:
-  // const token = jwt.sign({ username }, 'tajnySekret', { expiresIn: '1h' });
-  
-  // Zwracasz wygenerowany token
-  // return token;
-}
-
-app.use(fileUpload());
-app.use(express.json());
+//Aukcja
 
 const PhotoPath = 'public/photos/';
-
-app.use(express.static('public'));
 
 app.post('/create_auction', (req, res) => {
   const Title = req.body.title;
   const Price = req.body.price;
   const Description = req.body.description;
-  const soldBy = req.body.soldBy;
-  const promotion = req.body.promotion;
-  const usersId = req.body.usersId;
+  const soldBy = req.session.user.username;
+  const Photo = req.files.photos;
 
-  const Photo = req.files.coverImage;
-
-  if (coverImage) {
-    const coverImageName = coverImage.name;
-    coverImage.mv(coversUploadPath + coverImageName, (err) => {
+  if (Photo) {
+    const PhotoName = Photo.name;
+    Photo.mv(PhotoPath + PhotoName, (err) => {
       if (err) {
         return res.status(500).send(err);
       }
 
-      const sql = 'INSERT INTO auctions (title, photo, price, description, sold_by, users_id, promotion) VALUES (?, ?, ?, ?, ?, ?, ?)';
-      db.query(sql, [Title, coverImageName, Price, Description, soldBy, usersId, promotion], (err) => {
+      const sql = 'INSERT INTO auctions (title, photo, price, description, sold_by) VALUES (?, ?, ?, ?, ?)';
+      connection.query(sql, [Title, Photo, Price, Description, soldBy], (err) => {
         if (err) {
           return res.status(500).send(err);
         }
@@ -108,6 +107,17 @@ app.post('/create_auction', (req, res) => {
       });
     });
   } else {
-    return res.status(400).send('Nie przesłano okładki albumu.');
+    return res.status(400).send('Nie przesłano zdjęcia.');
   }
 });
+
+/*app.get('/profile', (req, res) => {
+  const user = req.session.user;
+
+  if (!user) {
+    return res.status(401).json({ message: "Użytkownik nie jest zalogowany." });
+  }
+
+  // Wykonaj operacje związane z profilem użytkownika
+  res.json(user);
+});*/
