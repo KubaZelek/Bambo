@@ -74,17 +74,40 @@ function generateJwtToken(username) {
   // return token;
 }
 
-app.post('/create_auction', async (req, res) => {
-  const sql = "INSERT INTO auctions (`title`,`price`,`description`) VALUES (?, ?, ?)";
-  const title = req.body.title;
-  //const photo = req.body.photo;
-  const price = req.body.price;
-  const description = req.body.description;
-  connection.query(sql, [title, price, description], (err, data) => {
-    if(err) {
-      console.error("SQL ERROR: " + err);
-      return res.status(500).json(err);
-    }
-    return res.json(data);
-  });  
-})
+app.use(fileUpload());
+app.use(express.json());
+
+const PhotoPath = 'public/photos/';
+
+app.use(express.static('public'));
+
+app.post('/create_auction', (req, res) => {
+  const Title = req.body.title;
+  const Price = req.body.price;
+  const Description = req.body.description;
+  const soldBy = req.body.soldBy;
+  const promotion = req.body.promotion;
+  const usersId = req.body.usersId;
+
+  const Photo = req.files.coverImage;
+
+  if (coverImage) {
+    const coverImageName = coverImage.name;
+    coverImage.mv(coversUploadPath + coverImageName, (err) => {
+      if (err) {
+        return res.status(500).send(err);
+      }
+
+      const sql = 'INSERT INTO auctions (title, photo, price, description, sold_by, users_id, promotion) VALUES (?, ?, ?, ?, ?, ?, ?)';
+      db.query(sql, [Title, coverImageName, Price, Description, soldBy, usersId, promotion], (err) => {
+        if (err) {
+          return res.status(500).send(err);
+        }
+
+        res.send('Przesyłanie zakończone');
+      });
+    });
+  } else {
+    return res.status(400).send('Nie przesłano okładki albumu.');
+  }
+});
