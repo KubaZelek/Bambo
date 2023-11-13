@@ -101,7 +101,7 @@ app.post('/create_auction', (req, res) => {
       }
 
       const sql = 'INSERT INTO auctions (title, photo, price, description, sold_by) VALUES (?, ?, ?, ?, ?)';
-      connection.query(sql, [Title, Photo, Price, Description, soldBy], (err) => {
+      connection.query(sql, [Title, PhotoPath + PhotoName, Price, Description, soldBy], (err) => {
         if (err) {
           return res.status(500).send(err);
         }
