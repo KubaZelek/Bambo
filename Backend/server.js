@@ -82,7 +82,7 @@ app.post('/create_auction', async (req, res) => {
   const description = req.body.description;
   connection.query(sql, [title, price, description], (err, data) => {
     if(err) {
-      console.error("SQL ERROR: " + err);
+      console.error(err);
       return res.status(500).json(err);
     }
     return res.json(data);
