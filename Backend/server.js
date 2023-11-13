@@ -6,13 +6,14 @@ const cors = require('cors');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const fileUpload = require('express-fileupload');
+const jwt = require('jsonwebtoken'); 
 
 
 app.use(cors());
 app.use(express.json());
 app.use(fileUpload());
 app.use(session({
-  secret: 'KochamBambo', // Sekret sesji
+  secret: 'KochamBambo',
   resave: false,
   saveUninitialized: true
 }));
@@ -55,8 +56,8 @@ app.post('/signup', async (req, res) => {
 app.post('/login', async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
-  const checkUserQuery = "SELECT * FROM users WHERE username = ?";
-  connection.query(checkUserQuery, [username], (err, userData) => {
+  const sql = "SELECT * FROM users WHERE username = ?";
+  connection.query(sql, [username], (err, userData) => {
     if (err) {
       console.error("SQL ERROR: " + err);
       return res.status(500).json(err);
@@ -69,14 +70,15 @@ app.post('/login', async (req, res) => {
       return res.status(401).json({ message: "Nieprawidłowa nazwa użytkownika lub hasło." });
     }
 
-    // Zapisz informacje o użytkowniku w sesji
-    //req.session.user = user;
+    req.session.user = user;
 
-    // Ustaw sesję lub token uwierzytelniający dla użytkownika
-    // Tu możesz użyć rozwiązań do zarządzania sesją lub tokenami, takie jak Express Session, Passport, JWT itp.
-    // Przykładowo, można użyć JWT do generowania i przesyłania tokena użytkownika w odpowiedzi
-    //const jwtToken = generateJwtToken(user.username);
-    res.status(200).json({ message: "Zalogowano pomyślnie"/*, token: jwtToken */});
+    function generateJwtToken(username) {
+      const secretKey = 'klucz';
+      const token = jwt.sign({ username }, secretKey, { expiresIn: '2h' })
+      return token;
+    }
+    const jwtToken = generateJwtToken(user.username);
+    res.status(200).json({ message: "Zalogowano pomyślnie", token: jwtToken });
   });
 });
 
@@ -88,7 +90,7 @@ app.post('/create_auction', (req, res) => {
   const Title = req.body.title;
   const Price = req.body.price;
   const Description = req.body.description;
-  /*const soldBy = req.session.user.username;*/
+  const soldBy = req.session.user.username;
   const Photo = req.files.photo;
 
   if (Photo) {
@@ -98,8 +100,8 @@ app.post('/create_auction', (req, res) => {
         return res.status(500).send(err);
       }
 
-      const sql = 'INSERT INTO auctions (title, photo, price, description) VALUES (?, ?, ?, ?)';
-      connection.query(sql, [Title, Photo, Price, Description], (err) => {
+      const sql = 'INSERT INTO auctions (title, photo, price, description, sold_by) VALUES (?, ?, ?, ?, ?)';
+      connection.query(sql, [Title, Photo, Price, Description, soldBy], (err) => {
         if (err) {
           return res.status(500).send(err);
         }
