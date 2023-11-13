@@ -1,4 +1,5 @@
-import {Link} from "wouter";
+import {Link} from 'react-router-dom';
+import login from '../Registration/Login';
 import account from './images/account.svg'
 import addIcon from './images/add.svg'
 import logo from './images/logo.png';
@@ -13,22 +14,17 @@ const Navbar = () => {
           <button class="search-button">Szukaj</button>
         </div>
         <div className="links">
-          <Link className="link" href="/">
-            <a className="hp">
-              <img className="image" src={account} alt="account" />
-              <span> Zaloguj się</span>
-            </a>
-          </Link>
-          <Link className="link" href="/">
-            <a className="do">
-              <img className="image1" src={addIcon} alt="addIcon" />
-              <span> Dodaj ogłoszenie</span>
-            </a>
-          </Link>
-        </div>
+        <Link className="hp" to="/login">
+      <img className="image" src={account} alt="account" />
+
+        <span className='s'>Zaloguj się</span></Link>
+        <Link className="do" to="/create" >
+        <img className="image1" src={addIcon} alt="addIcon" />
+          <span className='s2'>Dodaj ogłoszenie</span></Link>
       </div>
-      
-     );
-}
- 
+
+    </div>
+  );
+};
+
 export default Navbar;

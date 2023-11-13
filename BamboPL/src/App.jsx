@@ -1,24 +1,31 @@
-import './App.css'
-import CreateAuction from './Auctions/create-auction'
-//import Login from './Registration/Login'
-//import Signup from './Registration/Signup'
-import { useState } from 'react'
-import './App.css'
-import Navbar from './components/Navbar'
-import Text from './components/Text'
-import RecentlyAdded from './components/recentlyAdded'
-import Promotion from './components/Promotion'
+// App.jsx
+import React, { useEffect, useState } from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import RecentlyAdded from './components/RecentlyAdded';
+import Promotion from './components/Promotion';
+import Login from './Registration/Login';
+import Home from './Home';
 
 function App() {
-  
 
   return (
-    <>
-    <Navbar/>
-    <Promotion/>
-    <RecentlyAdded/>
-    </>
-  )
+    <Router>
+  <div className="App">
+    
+      <Switch>
+      <Route exact path="/">
+        <Home/>
+      </Route>
+
+
+        <Route path="/login">
+          <Login/>
+        </Route>
+      </Switch>
+  </div>
+  </Router>
+  );
 }
 
-export default App
+export default App;
