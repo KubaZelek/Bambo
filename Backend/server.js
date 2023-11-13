@@ -6,6 +6,7 @@ const cors = require('cors');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
+const fileUpload = require('express-fileupload');
 
 app.use(cors());
 app.use(express.json());
