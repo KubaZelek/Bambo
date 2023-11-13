@@ -5,8 +5,8 @@ const PORT = process.env.PORT || 5000;
 const cors = require('cors');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const jwt = require('jsonwebtoken');
 const fileUpload = require('express-fileupload');
+
 
 app.use(cors());
 app.use(express.json());
@@ -70,26 +70,26 @@ app.post('/login', async (req, res) => {
     }
 
     // Zapisz informacje o użytkowniku w sesji
-    req.session.user = user;
+    //req.session.user = user;
 
     // Ustaw sesję lub token uwierzytelniający dla użytkownika
     // Tu możesz użyć rozwiązań do zarządzania sesją lub tokenami, takie jak Express Session, Passport, JWT itp.
     // Przykładowo, można użyć JWT do generowania i przesyłania tokena użytkownika w odpowiedzi
-    const jwtToken = generateJwtToken(user.username);
-    res.status(200).json({ message: "Zalogowano pomyślnie", token: jwtToken });
+    //const jwtToken = generateJwtToken(user.username);
+    res.status(200).json({ message: "Zalogowano pomyślnie"/*, token: jwtToken */});
   });
 });
 
 //Aukcja
 
-const PhotoPath = 'public/photos/';
+const PhotoPath = 'public/photo/';
 
 app.post('/create_auction', (req, res) => {
   const Title = req.body.title;
   const Price = req.body.price;
   const Description = req.body.description;
-  const soldBy = req.session.user.username;
-  const Photo = req.files.photos;
+  /*const soldBy = req.session.user.username;*/
+  const Photo = req.files.photo;
 
   if (Photo) {
     const PhotoName = Photo.name;
@@ -98,8 +98,8 @@ app.post('/create_auction', (req, res) => {
         return res.status(500).send(err);
       }
 
-      const sql = 'INSERT INTO auctions (title, photo, price, description, sold_by) VALUES (?, ?, ?, ?, ?)';
-      connection.query(sql, [Title, Photo, Price, Description, soldBy], (err) => {
+      const sql = 'INSERT INTO auctions (title, photo, price, description) VALUES (?, ?, ?, ?)';
+      connection.query(sql, [Title, Photo, Price, Description], (err) => {
         if (err) {
           return res.status(500).send(err);
         }
