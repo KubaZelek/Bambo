@@ -4,7 +4,8 @@ import axios from 'axios';
 function CreateAuction() {
   const [values, setValues] = useState({
     title: '',
-    //photo: '',
+    soldBy: '',
+    photo: '',
     price: '',
     description: ''
   });
