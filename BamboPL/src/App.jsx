@@ -1,30 +1,27 @@
 // App.jsx
 import React, { useEffect, useState } from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Routes, Navigate} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import RecentlyAdded from './components/RecentlyAdded';
 import Promotion from './components/Promotion';
 import Login from './Registration/Login';
 import Home from './Home';
+import CreateAuction from './Auctions/create-auction';
 
 function App() {
 
   return (
-    <Router>
-  <div className="App">
     
-      <Switch>
-      <Route exact path="/">
-        <Home/>
-      </Route>
-
-
-        <Route path="/login">
-          <Login/>
-        </Route>
-      </Switch>
+  <div className="App">
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' index element={<Navigate to="/home" />} />
+        <Route path='/home' element={<Home/>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/create_auction" element={<CreateAuction />} />
+      </Routes>
+    </BrowserRouter>
   </div>
-  </Router>
   );
 }
 

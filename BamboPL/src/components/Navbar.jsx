@@ -18,7 +18,7 @@ const Navbar = () => {
       <img className="image" src={account} alt="account" />
 
         <span className='s'>Zaloguj się</span></Link>
-        <Link className="do" to="/create" >
+        <Link className="do" to="/create_auction" >
         <img className="image1" src={addIcon} alt="addIcon" />
           <span className='s2'>Dodaj ogłoszenie</span></Link>
       </div>
