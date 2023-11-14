@@ -80,6 +80,7 @@ app.post('/login', async (req, res) => {
     }
     const jwtToken = generateJwtToken(user.username);
     res.status(200).json({ message: "Zalogowano pomyślnie", token: jwtToken });
+    res.redirect('/home');
   });
 });
 
@@ -114,6 +115,7 @@ app.post('/create_auction', (req, res) => {
         }
 
         res.send('Przesyłanie zakończone');
+        res.redirect('/profile');
       });
     });
   } else {
@@ -121,13 +123,14 @@ app.post('/create_auction', (req, res) => {
   }
 });
 
-/*app.get('/profile', (req, res) => {
+app.get('/profile', (req, res) => {
   const user = req.session.user;
 
   if (!user) {
+    res.redirect('/login');
     return res.status(401).json({ message: "Użytkownik nie jest zalogowany." });
   }
 
   // Wykonaj operacje związane z profilem użytkownika
   res.json(user);
-});*/
+});
