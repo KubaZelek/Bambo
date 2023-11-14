@@ -15,7 +15,8 @@ app.use(fileUpload());
 app.use(session({
   secret: 'KochamBambo',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: { secure: false}
 }));
 app.use(express.static('public'));
 
