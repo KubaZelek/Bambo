@@ -88,6 +88,12 @@ app.post('/login', async (req, res) => {
 const PhotoPath = 'public/photo/';
 
 app.post('/create_auction', (req, res) => {
+  console.log('Sesja:' , req.session);
+
+  if(!req.session || !req.session.user){
+    console.error("Sesja albo uzytkownik nie istnieje");
+    return res.status(401).json({message: "Unauthorized"});
+  }
   const Title = req.body.title;
   const Price = req.body.price;
   const Description = req.body.description;
