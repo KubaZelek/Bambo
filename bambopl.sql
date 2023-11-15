@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Paź 30, 2023 at 10:57 AM
+-- Generation Time: Lis 15, 2023 at 03:39 PM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -32,7 +32,7 @@ CREATE TABLE `auctions` (
   `title` varchar(100) NOT NULL,
   `photo` varchar(150) NOT NULL,
   `price` double(5,2) NOT NULL,
-  `description` text ,
+  `description` text DEFAULT NULL,
   `sold_by` varchar(120) NOT NULL,
   `users_id` int(11) NOT NULL,
   `promotion` enum('0','1') NOT NULL,
@@ -50,7 +50,11 @@ CREATE TABLE `users` (
   `username` varchar(120) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `ac_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `age` year(4) NOT NULL,
+  `ac_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `company_name` varchar(120) DEFAULT NULL,
+  `NIP` int(10) DEFAULT NULL,
+  `company_account` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -85,11 +89,7 @@ ALTER TABLE `auctions`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
