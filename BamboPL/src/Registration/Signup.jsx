@@ -6,9 +6,14 @@ function Signup() {
     username: '',
     password: '',
     email: '',
+    age: null,
   });
   const handleChange = (event) => {
-    setValues({ ...values, [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+    setValues({
+      ...values,
+      [name]: name === 'age' ? parseInt(value, 10) : value, // Parse age as an integer
+    });
   };
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -32,6 +37,8 @@ function Signup() {
         <input type="password" name="password" placeholder="Wpisz hasło" onChange={handleChange} />
         <label htmlFor="email">E-mail</label>
         <input type="text" name="email" placeholder="Wpisz e-mail" onChange={handleChange} />
+        <label htmlFor="age">Wiek użytkownika</label>
+        <input type="number" name="age" min="13" max="100" step="1" onChange={handleChange}/>
         <button type="submit">Zarejestruj</button>
       </form>
     </div>

@@ -39,18 +39,16 @@ app.listen(PORT , () => console.log("Working on port "+PORT))
 //Rejestracja
 
 app.post('/signup', async (req, res) => {
-  const sql = "INSERT INTO users (`username`,`password`,`email`) VALUES (?, ? ,?)";
-  const username = req.body.username;
-  const password = req.body.password;
-  const email = req.body.email;
-  connection.query(sql, [username, password, email], (err, data) => {
-    if(err) {
+  const sql = "INSERT INTO users (username, password, email, age) VALUES (?, ?, ?, ?)";
+  const { username, password, email, age } = req.body;
+  connection.query(sql, [username, password, email, age], (err, data) => {
+    if (err) {
       console.error("SQL ERROR: " + err);
-      return res.status(500).json(err);
+      return res.status(500).json({ message: "Error while signing up" });
     }
-    return res.json(data);
-  });  
-})
+    return res.json({ message: "User signed up successfully" });
+  });
+});
 
 //Logowanie
 
@@ -83,7 +81,6 @@ app.post('/login', async (req, res) => {
     res.redirect('/home');
   });
 });
-
 //Aukcja
 
 const PhotoPath = 'public/photo/';

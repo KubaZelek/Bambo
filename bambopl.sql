@@ -50,7 +50,7 @@ CREATE TABLE `users` (
   `username` varchar(120) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `age` year(4) NOT NULL,
+  `age` INT NOT NULL,
   `ac_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `company_name` varchar(120) DEFAULT NULL,
   `NIP` int(10) DEFAULT NULL,

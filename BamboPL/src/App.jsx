@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import RecentlyAdded from './components/RecentlyAdded';
 import Promotion from './components/Promotion';
 import Login from './Registration/Login';
+import Signup from './Registration/Signup';
 import Home from './Home';
 import CreateAuction from './Auctions/create-auction';
 
