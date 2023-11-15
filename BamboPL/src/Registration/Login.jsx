@@ -16,12 +16,17 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post('http://localhost:5000/login', values)
+      .post('http://localhost:5000/login', {
+        username: values.username,
+        password: values.password,
+      })
       .then((res) => {
         console.log('Logged!');
+        // Handle successful login, e.g., redirect to a new page
       })
       .catch((err) => {
         console.log(err);
+        // Handle login error, e.g., show an error message
       });
   };
 

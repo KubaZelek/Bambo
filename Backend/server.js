@@ -7,6 +7,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const fileUpload = require('express-fileupload');
 const jwt = require('jsonwebtoken'); 
+const bcrypt = require('bcrypt');
 
 
 app.use(cors());
@@ -52,33 +53,37 @@ app.post('/signup', async (req, res) => {
 
 //Logowanie
 
+
 app.post('/login', async (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
+  const { username, password } = req.body;
+
   const sql = "SELECT * FROM users WHERE username = ?";
-  connection.query(sql, [username], (err, userData) => {
+  connection.query(sql, [username], async (err, userData) => {
     if (err) {
       console.error("SQL ERROR: " + err);
       return res.status(500).json(err);
     }
     if (userData.length === 0) {
-      return res.status(401).json({ message: "Nieprawidłowa nazwa użytkownika lub hasło." });
+      return res.status(401).json({ message: "Invalid username or password." });
     }
+
     const user = userData[0];
-    if (user.password !== password) {
-      return res.status(401).json({ message: "Nieprawidłowa nazwa użytkownika lub hasło." });
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (!passwordMatch) {
+      return res.status(401).json({ message: "Invalid username or password." });
     }
 
     req.session.user = user;
 
     function generateJwtToken(username) {
       const secretKey = 'klucz';
-      const token = jwt.sign({ username }, secretKey, { expiresIn: '2h' })
+      const token = jwt.sign({ username }, secretKey, { expiresIn: '2h' });
       return token;
     }
     const jwtToken = generateJwtToken(user.username);
-    res.status(200).json({ message: "Zalogowano pomyślnie", token: jwtToken });
-    res.redirect('/home');
+    res.status(200).json({ message: "Logged in successfully", token: jwtToken });
+    // res.redirect('/home'); // Remove this line, handle redirection in the front end
   });
 });
 //Aukcja
@@ -130,4 +135,19 @@ app.get('/profile', (req, res) => {
 
   // Wykonaj operacje związane z profilem użytkownika
   res.json(user);
+});
+
+app.get('/search', (req, res) => {
+  const searchTerm = req.query.searchTerm; // Get the search term from the query string
+
+  const sql = `SELECT * FROM auctions WHERE title LIKE '%${searchTerm}%' OR description LIKE '%${searchTerm}%'`;
+
+  connection.query(sql, (err, results) => {
+    if (err) {
+      console.error('Error searching in database:', err);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+    
+    res.json(results); // Return the search results as JSON
+  });
 });
