@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../css/login.css';
+import '../css/login_and_registration.css';
 import useFetch from '../ClientThings/useFetch';
 import '../ClientThings/useFetch.css'
 function Login() {
@@ -42,18 +42,62 @@ function Login() {
       )}
 
       {!isPending && (
+
+        
         <div className="login">
-          <h1>Logowanie</h1>
+
+          <h1><span class="underline">Logowanie</span> / Rejstracja</h1>
+
+          <a href="main">
+
+            <div className="minilogo">
+
+              <img src="C:\Users\pitr4\Desktop\Bambo\Bambo\BamboPL\src\components\images\Logo_niebieskie_mniejsze.png" alt="Logo" />
+
+            </div>
+
+          </a>
+          
+          <div className='down'>
+
+
+          
           <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Nazwa użytkownika</label>
-            <input type="text" name="username" placeholder="Wpisz nazwę" onChange={handleChange} />
-            <label htmlFor="password">Hasło</label>
-            <input type="password" name="password" placeholder="Wpisz hasło" onChange={handleChange} />
-            <button type="submit">Zaloguj się</button>
+            <label htmlFor="username">Nazwa użytkownika:</label><br />
+            <input type="text" name="username" placeholder="Wpisz nazwę" onChange={handleChange} /><br /><br />
+            <label htmlFor="password">Hasło:</label><br />
+            <input type="password" name="password" placeholder="Wpisz hasło" onChange={handleChange} /><br />
+            <button type="submit">Zaloguj</button>
           </form>
+
+          </div>
+
         </div>
       )}
     </div>
+
+    // <div className="box">
+    //   <div className="logowanie">
+    //     <div className="overlap-group">
+    //       <img className="rectangle" alt="Rectangle" src="rectangle-51.svg" />
+    //       <div className="div" />
+    //       <div className="rectangle-2" />
+    //       <p className="logowanie-rejstracja">
+    //         <span className="text-wrapper">Logowanie</span>
+    //         <span className="span"> / Rejstracja</span>
+    //       </p>
+    //       <img className="line" alt="Line" src="line-11.svg" />
+    //       <div className="text-wrapper-2">Email:</div>
+    //       <div className="rectangle-3" />
+    //       <div className="text-wrapper-3">Hasło:</div>
+    //       <div className="rectangle-4" />
+    //       <div className="text-wrapper-4">Zaloguj</div>
+    //       <div className="rectangle-5" />
+    //       <img className="logo-niebieskie" alt="Logo niebieskie" src="Bambo/BamboPL/src/css/Logo_niebieskie_mniejsze.png" />
+    //     </div>
+    //   </div>
+    // </div>
+    
   );
 }
 
