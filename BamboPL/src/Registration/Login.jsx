@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../css/login_and_registration.css';
+import '../css/login_second.css';
 import useFetch from '../ClientThings/useFetch';
 import '../ClientThings/useFetch.css'
 import {Link} from 'react-router-dom';
+
+
+
 
 function Login() {
   const [values, setValues] = useState({
@@ -44,36 +48,42 @@ function Login() {
       )}
 
       {!isPending && (
+        
 
         
-        <div className="login">
+        <div className='all-rest'>
+          <div className="login">
+            
 
-          <h1><span class="underline">Logowanie</span> /<Link to="/signup"><span>Rejstracja</span></Link> </h1>
 
-          <a href="main">
+            <h1><span class="underline">Logowanie</span> /<Link to="/signup"><span>Rejstracja</span></Link> </h1>
 
-            <div className="minilogo">
+            <a href="main">
 
-              <img src="C:\Users\pitr4\Desktop\Bambo\Bambo\BamboPL\src\components\images\Logo_niebieskie_mniejsze.png" alt="Logo" />
+              <div className="minilogo">
+
+                <img src="C:\Users\pitr4\Desktop\Bambo\Bambo\BamboPL\src\components\images\Logo_niebieskie_mniejsze.png" alt="Logo" />
+
+              </div>
+
+            </a>
+            
+            <div className='down'>
+
+
+            
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="username">Nazwa użytkownika:</label><br />
+              <input type="text" name="username" placeholder="Wpisz nazwę" onChange={handleChange} /><br /><br />
+              <label htmlFor="password">Hasło:</label><br />
+              <input type="password" name="password" placeholder="Wpisz hasło" onChange={handleChange} /><br />
+              <button type="submit">Zaloguj</button>
+            </form>
 
             </div>
 
-          </a>
           
-          <div className='down'>
-
-
-          
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Nazwa użytkownika:</label><br />
-            <input type="text" name="username" placeholder="Wpisz nazwę" onChange={handleChange} /><br /><br />
-            <label htmlFor="password">Hasło:</label><br />
-            <input type="password" name="password" placeholder="Wpisz hasło" onChange={handleChange} /><br />
-            <button type="submit">Zaloguj</button>
-          </form>
-
           </div>
-
         </div>
       )}
     </div>

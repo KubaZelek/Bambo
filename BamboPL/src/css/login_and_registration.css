@@ -1,14 +1,26 @@
 body{
     
-  /* background-image: url('../components/images/Frame Logowanie.png'); */
+  background-image: url('../components/images/Frame Logowanie.png');
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   text-align: center;
+  background-size: cover;
 
 }
+.background-image {
+  /* position: fixed;
+  z-index: 5; */
+  background-image: url('../components/images/Frame Logowanie.png');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background-size: cover;
 
+}
 .minilogo {
   position: fixed;
   top: 0.5rem;
