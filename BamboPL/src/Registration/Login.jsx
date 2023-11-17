@@ -5,6 +5,7 @@ import '../css/login_second.css';
 import useFetch from '../ClientThings/useFetch';
 import '../ClientThings/useFetch.css'
 import {Link} from 'react-router-dom';
+import logo from '../components/images/Logo_niebieskie_mniejsze.png';
 
 
 
@@ -56,17 +57,17 @@ function Login() {
             
 
 
-            <h1><span class="underline">Logowanie</span> /<Link to="/signup"><span>Rejstracja</span></Link> </h1>
+            <h1><span class="underline">Logowanie</span> / <Link to="/signup"><span>Rejstracja</span></Link> </h1>
 
-            <a href="main">
+            <Link to="/home">
 
               <div className="minilogo">
 
-                <img src="C:\Users\pitr4\Desktop\Bambo\Bambo\BamboPL\src\components\images\Logo_niebieskie_mniejsze.png" alt="Logo" />
+                <img src={logo} alt={"Logo"} className='imgs'/>
 
               </div>
 
-            </a>
+              </Link>
             
             <div className='down'>
 
