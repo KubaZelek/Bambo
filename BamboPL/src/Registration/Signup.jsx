@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import useFetch from '../ClientThings/useFetch'; // Import the useFetch hook
 import '../css/login_and_registration.css';
 import '../ClientThings/useFetch.css';
+import logo from '../components/images/Logo_niebieskie_mniejsze.png';
 
 function Signup() {
   const [values, setValues] = useState({
@@ -45,26 +46,36 @@ function Signup() {
       )}
 
       {!isPending && (
-        <div>
+        <div className='login'>
           <h1>
             <Link to="/login">
               <span>Logowanie</span>
             </Link>{' '}
-            /
+            <span>/ </span>
             <Link to="/signup">
               <span className="underline">Rejstracja</span>
             </Link>{' '}
           </h1>
+          <Link to="/home">
+
+            <div className="minilogo">
+
+              <img src={logo} alt={"Logo"} className='imgs'/>
+
+            </div>
+
+          </Link>
+          
           <form onSubmit={handleSubmit}>
           <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Nazwa użytkownika</label>
-        <input type="text" name="username" placeholder="Wpisz nazwę" onChange={handleChange} />
-        <label htmlFor="password">Hasło</label>
-        <input type="password" name="password" placeholder="Wpisz hasło" onChange={handleChange} />
-        <label htmlFor="email">E-mail</label>
-        <input type="text" name="email" placeholder="Wpisz e-mail" onChange={handleChange} />
-        <label htmlFor="age">Wiek użytkownika</label>
-        <input type="number" name="age" min="13" max="100" step="1" onChange={handleChange}/>
+        <label htmlFor="username">Nazwa użytkownika</label><br />
+        <input type="text" name="username" placeholder="Wpisz nazwę" onChange={handleChange} /><br />
+        <label htmlFor="password">Hasło</label><br />
+        <input type="password" name="password" placeholder="Wpisz hasło" onChange={handleChange} /><br />
+        <label htmlFor="email">E-mail</label><br />
+        <input type="text" name="email" placeholder="Wpisz e-mail" onChange={handleChange} /><br />
+        <label htmlFor="age">Wiek użytkownika</label><br />
+        <input type="number" placeholder="18" name="age" min="13" max="100" step="1" onChange={handleChange}/><br />
         <button type="submit">Zarejestruj</button>
       </form>
             <button type="submit">Zarejestruj</button>

@@ -1,6 +1,6 @@
 body{
     
-  background-image: url('../components/images/Frame Logowanie.png');
+  /* background-image: url('../components/images/Frame Logowanie.png'); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +12,7 @@ body{
 .background-image {
   /* position: fixed;
   z-index: 5; */
-  background-image: url('../components/images/Frame Logowanie.png');
+  /* background-image: url('../components/images/Frame Logowanie.png'); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,7 +63,9 @@ font-weight: 900;
 .underline {
 text-decoration: underline;
 }
-
+a {
+  text-decoration: none;
+}
 label {
   text-align: left;
   font-size: 1.2rem;
