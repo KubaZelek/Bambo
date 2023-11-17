@@ -76,6 +76,9 @@ function Login() {
             <form onSubmit={handleSubmit}>
               <label htmlFor="username">Nazwa użytkownika:</label><br />
               <input type="text" name="username" placeholder="Wpisz nazwę" onChange={handleChange} /><br /><br />
+
+              <p className='break'> </p>
+
               <label htmlFor="password">Hasło:</label><br />
               <input type="password" name="password" placeholder="Wpisz hasło" onChange={handleChange} /><br />
               <button type="submit">Zaloguj</button>
