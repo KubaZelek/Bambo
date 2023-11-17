@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 function Signup() {
   const [values, setValues] = useState({
@@ -29,7 +30,7 @@ function Signup() {
 
   return (
     <div className="Signup">
-      <h1>Rejestracja</h1>
+      <h1><Link to="/login"><span >Logowanie</span></Link> /<Link to="/register"><span class="underline">Rejstracja</span></Link> </h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Nazwa użytkownika</label>
         <input type="text" name="username" placeholder="Wpisz nazwę" onChange={handleChange} />

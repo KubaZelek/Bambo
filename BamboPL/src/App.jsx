@@ -9,7 +9,6 @@ import Signup from './Registration/Signup';
 import Home from './Home';
 import CreateAuction from './Auctions/create-auction';
 
-
 function App() {
 
   return (
@@ -21,6 +20,8 @@ function App() {
         <Route path='/home' element={<Home/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/create_auction" element={<CreateAuction />} />
+        <Route path="/register" element={<Signup/>} />
+
       </Routes>
     </BrowserRouter>
   </div>

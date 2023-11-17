@@ -3,6 +3,8 @@ import axios from 'axios';
 import '../css/login_and_registration.css';
 import useFetch from '../ClientThings/useFetch';
 import '../ClientThings/useFetch.css'
+import {Link} from 'react-router-dom';
+
 function Login() {
   const [values, setValues] = useState({
     username: '',
@@ -46,7 +48,7 @@ function Login() {
         
         <div className="login">
 
-          <h1><span class="underline">Logowanie</span> / Rejstracja</h1>
+          <h1><span class="underline">Logowanie</span> /<Link to="/register"><span>Rejstracja</span></Link> </h1>
 
           <a href="main">
 
