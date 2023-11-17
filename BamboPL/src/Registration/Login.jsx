@@ -48,7 +48,7 @@ function Login() {
         
         <div className="login">
 
-          <h1><span class="underline">Logowanie</span> /<Link to="/register"><span>Rejstracja</span></Link> </h1>
+          <h1><span class="underline">Logowanie</span> /<Link to="/signup"><span>Rejstracja</span></Link> </h1>
 
           <a href="main">
 
