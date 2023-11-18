@@ -47,13 +47,7 @@ function AccountSignup() {
       {!isPending && (
         <div className="login">
           <h1>
-            <Link to="/login">
-              <span>Logowanie</span>
-            </Link>{' '}
-            <span>/ </span>
-            <Link to="/signup">
-              <span className="underline">Rejestracja</span>
-            </Link>{' '}
+               Rejstracja kont firmowych
           </h1>
 
           <Link to="/home">
@@ -64,11 +58,28 @@ function AccountSignup() {
 
           <div className="down">
             <form onSubmit={handleSubmit}>
-              {/* ... (Pozostała część formularza) ... */}
+
+              <label htmlFor="account_name">Nazwa firmy<span className='nessesary'>*</span></label><br />
+              <input type="text" name="account_name" placeholder="Wpisz nazwę firmy" onChange={handleChange} /><br />
+
+              <p className='break'> </p>
+
+              <label htmlFor="password">Hasło<span className='nessesary'>*</span></label><br />
+              <input type="password" name="password" placeholder="Wpisz hasło do konta firmowego" onChange={handleChange} /><br />
+
+              <p className='break'> </p>
+
+              <label htmlFor="email">E-mail<span className='nessesary'>*</span></label><br />
+              <input type="text" name="email" placeholder="Wpisz e-mail firmowy" onChange={handleChange} /><br />
+
+              <p className='break'> </p>
+
+              <label htmlFor="account_name">NIP<span className='nessesary'>*</span></label><br />
+              <input type="text" name="account_name" placeholder="Wpisz NIP swojej firmy" onChange={handleChange} /><br />
+
+              <p className='break'> </p>
+
               <button type="submit">Przejdź dalej</button>
-              <Link to="/AnotherPage.jsx" className='company_acc'>
-                <span>Chcesz założyć inne konto?</span>
-              </Link>{' '}
             </form>
           </div>
         </div>
