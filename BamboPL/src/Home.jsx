@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import OffersHomePage from "./components/OffersHomePage";
 import Promotion from "./components/Promotion";
 import RecentlyAdded from "./components/RecentlyAdded";
+import Footer from "./components/Footer";
 import { Link } from 'react-router-dom';
 import useFetch from '../src/ClientThings/useFetch';
 
@@ -23,6 +24,8 @@ const Home = () => {
             <Promotion/>
             <RecentlyAdded/>
             <OffersHomePage/>
+            <Footer/>
+
         </div>
       )}
       </div>

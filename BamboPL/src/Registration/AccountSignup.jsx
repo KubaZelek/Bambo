@@ -6,7 +6,7 @@ import '../css/login_and_registration.css';
 import '../ClientThings/useFetch.css';
 import logo from '../components/images/Logo_niebieskie_mniejsze.png';
 
-function Signup() {
+function AccountSignup() {
   const [values, setValues] = useState({
     username: '',
     password: '',
@@ -37,7 +37,7 @@ function Signup() {
   const { isPending } = useFetch('');
 
   return (
-    <div className="Signup">
+    <div className="AccountSignup">
       {isPending && (
         <div className="loading-area">
           <div className="loading-spinner"></div>
@@ -47,13 +47,7 @@ function Signup() {
       {!isPending && (
         <div className="login">
           <h1>
-            <Link to="/login">
-              <span>Logowanie</span>
-            </Link>{' '}
-            <span>/ </span>
-            <Link to="/signup">
-              <span className="underline">Rejstracja</span>
-            </Link>{' '}
+               Rejstracja kont firmowych
           </h1>
 
           <Link to="/home">
@@ -64,49 +58,28 @@ function Signup() {
 
           <div className="down">
             <form onSubmit={handleSubmit}>
-              <label htmlFor="username">Nazwa użytkownika<span className='nessesary'>*</span></label><br />
-              <input type="text" name="username" placeholder="Wpisz nazwę" onChange={handleChange} /><br />
+
+              <label htmlFor="account_name">Nazwa firmy<span className='nessesary'>*</span></label><br />
+              <input type="text" name="account_name" placeholder="Wpisz nazwę firmy" onChange={handleChange} /><br />
 
               <p className='break'> </p>
 
               <label htmlFor="password">Hasło<span className='nessesary'>*</span></label><br />
-              <input type="password" name="password" placeholder="Wpisz hasło" onChange={handleChange} /><br />
+              <input type="password" name="password" placeholder="Wpisz hasło do konta firmowego" onChange={handleChange} /><br />
 
               <p className='break'> </p>
 
               <label htmlFor="email">E-mail<span className='nessesary'>*</span></label><br />
-              <input type="text" name="email" placeholder="Wpisz e-mail" onChange={handleChange} /><br />
+              <input type="text" name="email" placeholder="Wpisz e-mail firmowy" onChange={handleChange} /><br />
 
               <p className='break'> </p>
 
-              <label htmlFor="age">Wiek użytkownika<span className='nessesary'>*</span></label><br />
-              <input type="number" placeholder="18" name="age" min="13" max="100" step="1" onChange={handleChange} /><br />
+              <label htmlFor="account_name">NIP<span className='nessesary'>*</span></label><br />
+              <input type="text" name="account_name" placeholder="Wpisz NIP swojej firmy" onChange={handleChange} /><br />
 
               <p className='break'> </p>
-
-              {/* <table>
-                <tr>
-                  <td colSpan={4}><label htmlFor="company">Konto Firmowe</label></td>
-                </tr>
-                <tr>
-                  <td><span className='YesNo'>Tak</span></td>
-                  <td><input type="radio" name="company" id="company" onChange={handleChange} value={"Tak"}/></td>
-                  <td><span className='YesNo'>Nie</span></td>
-                  <td><input type="radio" name="company" id="company" onChange={handleChange} value={"Nie"}/></td>
-                </tr>
-                
-              </table> */}
-              
-             
-              
 
               <button type="submit">Przejdź dalej</button>
-              <Link to="/AccountSignup" className='company_acc'>
-              <span>Chesz założyć konto firmowe?</span>
-              </Link>{' '}
-
-              
-
             </form>
           </div>
         </div>
@@ -115,4 +88,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default AccountSignup;

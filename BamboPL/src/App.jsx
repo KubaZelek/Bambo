@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import {BrowserRouter, Route, Routes, Navigate} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import RecentlyAdded from './components/RecentlyAdded';
+import Footer from './components/Footer';
 import Promotion from './components/Promotion';
 import Login from './Registration/Login';
 import Signup from './Registration/Signup';
@@ -10,6 +11,9 @@ import Home from './Home';
 import CreateAuction from './Auctions/create-auction';
 
 import ProfilePage from './components/ProfilePage';
+import Profile from './components/Profile';
+import AccountSignup from './Registration/AccountSignup';
+
 function App() {
 
   return (
@@ -23,6 +27,8 @@ function App() {
         <Route path="/create_auction" element={<CreateAuction />} />
         <Route path="/signup" element={<Signup/>} />
         <Route path="/profile" element={<ProfilePage/>}/>
+        <Route path="/AccountSignup" element={<AccountSignup/>} />
+        
       </Routes>
     </BrowserRouter>
   </div>
