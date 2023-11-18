@@ -84,7 +84,7 @@ function Signup() {
 
               <p className='break'> </p>
 
-              <table>
+              {/* <table>
                 <tr>
                   <td colSpan={4}><label htmlFor="company">Konto Firmowe</label></td>
                 </tr>
@@ -95,12 +95,13 @@ function Signup() {
                   <td><input type="radio" name="company" id="company" onChange={handleChange} value={"Nie"}/></td>
                 </tr>
                 
-              </table>
+              </table> */}
               
              
               
 
               <button type="submit">Przejdź dalej</button>
+              <Link to="/login" className='company_acc'>Chesz założyć konto firmowe?</Link>{' '}
 
             </form>
           </div>

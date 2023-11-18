@@ -142,6 +142,8 @@ button[type="submit"]:active {
   height: 0rem;
   /* background-color: #024899; */
 }
+/* 
+button:after {content:"<Link to="/login" className='company_acc'>Chesz założyć konto firmowe?</Link>"; }​ */
 /* .box {
         height: 1080px;
         width: 1920px;
