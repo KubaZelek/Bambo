@@ -101,7 +101,11 @@ function Signup() {
               
 
               <button type="submit">Przejdź dalej</button>
-              <Link to="/singup2" className='company_acc'>Chesz założyć konto firmowe?</Link>{' '}
+              <Link to="/Acount_signup.jsx" className='company_acc'>
+              <span>Chesz założyć konto firmowe?</span>
+              </Link>{' '}
+
+              
 
             </form>
           </div>

@@ -25,7 +25,7 @@ function Signup() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post('http://localhost:5000/signup', values)
+      .post('http://localhost:5000/Acount_signup', values)
       .then((res) => {
         console.log('Registered!');
       })
@@ -47,7 +47,13 @@ function Signup() {
       {!isPending && (
         <div className="login">
           <h1>
-            Rejsctacja firm
+            <Link to="/login">
+              <span>Logowanie</span>
+            </Link>{' '}
+            <span>/ </span>
+            <Link to="/signup">
+              <span className="underline">Rejstracja</span>
+            </Link>{' '}
           </h1>
 
           <Link to="/home">
@@ -95,7 +101,11 @@ function Signup() {
               
 
               <button type="submit">Przejdź dalej</button>
-              <Link to="/Singup2.jsx" className='company_acc'>Chesz założyć konto firmowe?</Link>{' '}
+              <Link to="/Acount_signup.jsx" className='company_acc'>
+              <span>Chesz założyć konto firmowe?</span>
+              </Link>{' '}
+
+              
 
             </form>
           </div>
@@ -105,4 +115,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Acount_signup;
