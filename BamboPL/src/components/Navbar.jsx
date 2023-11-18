@@ -9,7 +9,6 @@ import axios from 'axios';
 import '../css/navbar.css';
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
-
   const handleSearch = () => {
     axios.get(`http://localhost:3000/search?searchTerm=${searchTerm}`)
       .then((response) => {
@@ -20,6 +19,14 @@ const Navbar = () => {
         console.error('Error searching:', error);
       });
   };
+  // 
+  // 
+  // TUTAJ ZMIENNE UDAJĄCE SESJĘ- JEŚLI SESJA JEST TRUE, TO WYSWIETLA SIĘ 'WITAJ, IMIE', JESLI NIE, TO ZALOGUJ SIE.
+  const [name,setName] = useState('KubaZelek');
+  const [fakeSession, setFakeSession] = useState(true);
+  // 
+  // 
+  // 
 
     return ( 
         <div class="navbar">
@@ -29,10 +36,15 @@ const Navbar = () => {
         <button className="search-button" onClick={handleSearch}>Szukaj</button>
         </div>
         <div className="links">
-        <Link className="hp" to="/login">
-      <img className="image" src={account} alt="account" />
-
-        <span className='s'>Zaloguj się</span></Link>
+ 
+         <Link className="hp" to={fakeSession ? "/profile" : "/login"}>
+    <img className="image" src={account} alt="account" />
+    {fakeSession ? (
+      <span className='s'>Witaj, {name}</span>
+    ) : (
+      <span className='s'>Zaloguj się</span>
+    )}
+  </Link>
         <Link className="do" to="/create_auction" >
         <img className="image1" src={addIcon} alt="addIcon" />
           <span className='s2'>Dodaj ogłoszenie</span></Link>

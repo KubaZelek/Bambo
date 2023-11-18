@@ -1,0 +1,45 @@
+.offers-home-page {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.offer {
+  position: relative;
+  margin: 2rem; /* Reduced margin for smaller elements */
+  width: calc(30% - 2 * 5rem); /* Adjusted width considering reduced margins */
+  flex-shrink: 0; /* Ensure the width is fixed */
+}
+
+.ad-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 5px; /* Reduced padding for smaller elements */
+  box-sizing: border-box;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.ad-image {
+  width: 100%;
+  height: auto;
+max-height: 600px;
+}
+
+.price {
+  font-size: 3rem; /* Adjusted font size for the price */
+  font-weight: bold;
+}
+
+.offer-name {
+  font-size: 1rem; /* Adjusted font size for the offer name */
+}
+
+/* Apply flex: 1 to the last offer to fill the remaining space */
+.offer:last-child {
+  flex: 0 0 calc(30% - 2 * 5rem); /* Set the same fixed width as other offers */
+}

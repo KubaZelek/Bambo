@@ -8,7 +8,8 @@ import Login from './Registration/Login';
 import Signup from './Registration/Signup';
 import Home from './Home';
 import CreateAuction from './Auctions/create-auction';
-import Profile from './components/Profile';
+
+import ProfilePage from './components/ProfilePage';
 function App() {
 
   return (
@@ -21,7 +22,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/create_auction" element={<CreateAuction />} />
         <Route path="/signup" element={<Signup/>} />
-        <Route path="/profile" element={<Profile/>}/>s
+        <Route path="/profile" element={<ProfilePage/>}/>
       </Routes>
     </BrowserRouter>
   </div>
