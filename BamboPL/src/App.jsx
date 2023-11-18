@@ -22,6 +22,7 @@ function App() {
         <Route path="/create_auction" element={<CreateAuction />} />
         <Route path="/signup" element={<Signup/>} />
         <Route path="/profile" element={<Profile/>}/>s
+        <Route path="/AccountSignup" element={<AccountSignup/>} />
       </Routes>
     </BrowserRouter>
   </div>
