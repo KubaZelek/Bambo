@@ -11,7 +11,7 @@ const Home = () => {
             <Link to="/profile">testowy link do profilu</Link>
             <Promotion/>
             <RecentlyAdded/>
-            {/* <Footer/> */}
+            <Footer/>
 
         </div>
      );
