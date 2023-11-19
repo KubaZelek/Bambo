@@ -15,7 +15,7 @@
 
             <h1><span class="underline">Logowanie</span> / <a href="signup.php"><span>Rejstracja</span></a> </h1>
 
-            <a href="index.html">
+            <a href="index.php">
 
               <div className="minilogo">
 

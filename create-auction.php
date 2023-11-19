@@ -1,3 +1,8 @@
+<?php 
+session_start();
+$_SESSION['login'];
+?>
+
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
@@ -18,7 +23,7 @@
 
           <label htmlFor="price">Cena</label>
           <input type="number" name="price" placeholder="Wpisz cenę [zł]" min='0'>
-
+          <input type='hidden' name='sold_by' value=" . $_SESSION['login'] . ">
           <label htmlFor="description">Dodaj opis</label>
           <textarea name="description" placeholder="Opisz przedmiot"></textarea>
 

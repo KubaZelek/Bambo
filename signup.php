@@ -19,7 +19,7 @@
             </a>
           </h1>
 
-          <a href="index.html">
+          <a href="index.php">
             <div className="minilogo">
               <img src="images/logo.png" alt="Logo" className="imgs" />
             </div>
