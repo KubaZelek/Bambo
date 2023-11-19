@@ -1,0 +1,129 @@
+body{
+    font-family: 'Lato', sans-serif;
+    margin:0 auto;
+  }
+  .navbar{
+  
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid #007bff;
+      box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.1);
+  }
+  .navbar .bambo{
+    width: 10%;
+  }
+  img{
+      width: 15%;
+      height: auto;
+  }
+  /* Searchbar */
+  .search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 30%;
+    box-shadow: 0 9px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-bar {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    margin-right: 2%;
+    font-size: 1.2rem;
+    outline: none;
+  }
+  .search-button {
+    padding: 1.1rem 2rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    font-size: 1.2rem;
+    box-shadow: 0 9px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .links{ 
+    justify-content: space-around;
+  /* TU SIE COS ZWALILO */
+  }
+  .image, .image1{
+    width: 20%;
+  }
+  
+  .link{
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+  }
+  .hp, .do {
+    padding: 0 2rem 0 2rem;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #007bff;
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+  }
+  
+  .hp::before, .do::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #007bff;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .hp:hover::before, .do:hover::before {
+    width: 100%; 
+    left: 0; 
+  }
+  .do{
+    margin-top: 1rem;
+  }
+  .promotion img{
+    width: 100%;
+    
+  }
+
+  .ra{
+    font-size: 3rem;
+    color: #007bff;
+    width: 70%;
+    border-bottom: 3px solid #007bff;
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+  @media only screen and (max-width: 900px) {
+    .navbar{
+      flex-direction: column;
+    }
+    .promotion img{
+      scale: 1;
+    }
+    .search-container{
+      width: 100vw;
+    }
+    .logohp{
+      width: 100vw;
+    }
+    .hp, .do,.link,.links{
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+    .hp, .do{
+      width: auto;
+    }
+  }
+  
