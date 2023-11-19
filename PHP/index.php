@@ -59,7 +59,7 @@
                               <img className="ad-image" src="../images/'.$row['photo'].'" alt="zdjecie przedmiotu" />
                               <div className="ad-details">
                                 <p className="offer-name">'.$row['title'].'</p>
-                                <p className="price">'.$row['price'].'</p>
+                                <p className="price">'.$row['price'].'zł</p>
                               </div>
                             </a>
                             ';
