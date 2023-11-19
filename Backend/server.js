@@ -51,27 +51,36 @@ app.post('/signup', async (req, res) => {
   });
 });
 
+app.post('/signup', async (req, res) => {
+  const sql = "INSERT INTO users (username, password, email, age) VALUES (?, ?, ?, ?)";
+  const { username, password, email, age } = req.body;
+  connection.query(sql, [username, password, email, age], (err, data) => {
+    if (err) {
+      console.error("SQL ERROR: " + err);
+      return res.status(500).json({ message: "Error while signing up" });
+    }
+    return res.json({ message: "User signed up successfully" });
+  });
+});
+
 //Logowanie
 
 
 app.post('/login', async (req, res) => {
-  const { username, password } = req.body;
-
-  const sql = "SELECT * FROM users WHERE username = ?";
-  connection.query(sql, [username], async (err, userData) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  const checkUserQuery = "SELECT * FROM users WHERE username = ? AND password = ?";
+  connection.query(checkUserQuery, [username, password], (err, userData) => {
     if (err) {
       console.error("SQL ERROR: " + err);
       return res.status(500).json(err);
     }
     if (userData.length === 0) {
-      return res.status(401).json({ message: "Invalid username or password." });
+      return res.status(401).json({ message: "Nieprawidłowa nazwa użytkownika lub hasło." });
     }
-
     const user = userData[0];
-    const passwordMatch = await bcrypt.compare(password, user.password);
-
-    if (!passwordMatch) {
-      return res.status(401).json({ message: "Invalid username or password." });
+    if (user.password !== password) {
+      return res.status(401).json({ message: "Nieprawidłowa nazwa użytkownika lub hasło." });
     }
 
     req.session.user = user;
@@ -83,15 +92,17 @@ app.post('/login', async (req, res) => {
     }
     const jwtToken = generateJwtToken(user.username);
     res.status(200).json({ message: "Logged in successfully", token: jwtToken });
-    // res.redirect('/home'); // Remove this line, handle redirection in the front end
+     
   });
 });
 //Aukcja
 
-const PhotoPath = 'public/photo/';
+
 
 app.post('/create_auction', (req, res) => {
   console.log('Sesja:' , req.session);
+
+  const PhotoPath = 'public/photo/';
 
   if(!req.session || !req.session.user){
     console.error("Sesja albo uzytkownik nie istnieje");

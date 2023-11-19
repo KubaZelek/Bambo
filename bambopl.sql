@@ -57,6 +57,17 @@ CREATE TABLE `users` (
   `company_account` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+CREATE TABLE `company_users` (
+  `id` int(11) NOT NULL,
+  `company_name` varchar(120) DEFAULT NULL,
+  `NIP` int(10) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `ac_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
 --
 -- Indeksy dla zrzutów tabel
 --
@@ -66,7 +77,6 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `auctions`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `users_id` (`users_id`);
 
 --
 -- Indeksy dla tabeli `users`

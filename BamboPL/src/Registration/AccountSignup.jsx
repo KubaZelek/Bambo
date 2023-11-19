@@ -8,24 +8,20 @@ import logo from '../components/images/Logo_niebieskie_mniejsze.png';
 
 function AccountSignup() {
   const [values, setValues] = useState({
-    username: '',
+    company_name: '',
     password: '',
     email: '',
-    age: null,
+    NIP: '',
   });
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setValues({
-      ...values,
-      [name]: name === 'age' ? parseInt(value, 10) : value,
-    });
+    setValues({ ...values, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post('http://localhost:5000/signup', values)
+      .post('http://localhost:5000/account_signup', values)
       .then((res) => {
         console.log('Registered!');
       })

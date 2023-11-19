@@ -10,7 +10,7 @@ import '../css/navbar.css';
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const handleSearch = () => {
-    axios.get(`http://localhost:3000/search?searchTerm=${searchTerm}`)
+    axios.get(`http://localhost:5000/search?searchTerm=${searchTerm}`)
       .then((response) => {
         console.log('Search results:', response.data);
         // Handle the received search results in your frontend

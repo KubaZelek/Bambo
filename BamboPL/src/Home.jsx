@@ -20,7 +20,6 @@ const Home = () => {
       {!isPending && (
         <div className="rest">
             <Navbar/>
-            
             <Promotion/>
             <RecentlyAdded/>
             <OffersHomePage/>
