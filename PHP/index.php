@@ -59,10 +59,10 @@
                             echo'
                             <div className="offers-home-page">
                             <a href="#" className="offer">
-                              <img className="ad-image" src="../images/'.$row['photo']'" alt="zdjecie przedmiotu" />
+                              <img className="ad-image" src="../images/'.$row['photo'].'" alt="zdjecie przedmiotu" />
                               <div className="ad-details">
-                                <p className="offer-name">'.$row['tile']'</p>
-                                <p className="price">'.$row['price']'</p>
+                                <p className="offer-name">'.$row['tile'].'</p>
+                                <p className="price">'.$row['price'].'</p>
                               </div>
                             </a>
                             ';
