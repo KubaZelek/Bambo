@@ -20,9 +20,9 @@
         <img class='logohp' src="../images/logo.png" alt="logo"/>
         <div class="search-container">
         <form action="index.php" method="post">
-        <input placeholder="Ulubione produkty tutaj!" type="text" class="search-bar" />
-            <input type="submit" value="Szukaj" class="search-button" name="btn">
-          </form> 
+    <input placeholder="Ulubione produkty tutaj!" type="text" class="search-bar" name="search-bar" />
+    <input type="submit" value="Szukaj" class="search-button" name="btn">
+      </form>
             </div>
          <div class="links">
   
@@ -41,9 +41,6 @@
         <img src="../images/Vector.svg" alt="promotionimage">
      </div>
      <h1 class="ra">Świeże bułeczki</h1>
-
-
-
      <!-- oferty -->
      <?php
             @session_start();
@@ -61,7 +58,7 @@
                             <a href="#" className="offer">
                               <img className="ad-image" src="../images/'.$row['photo'].'" alt="zdjecie przedmiotu" />
                               <div className="ad-details">
-                                <p className="offer-name">'.$row['tile'].'</p>
+                                <p className="offer-name">'.$row['title'].'</p>
                                 <p className="price">'.$row['price'].'</p>
                               </div>
                             </a>
@@ -71,7 +68,7 @@
                      else{
                         echo"<p>Nic nie znaleziono</p>";
                     }
-                     }else{
+                     }/*else{
                       echo'
                       <div className="offers-home-page">
                       <a href="#" className="offer">
@@ -118,8 +115,7 @@
                       </a>
                     </div>
                       ';
-                     }
-                 
+                     }*/
             ?>
       <footer>
         <table>
