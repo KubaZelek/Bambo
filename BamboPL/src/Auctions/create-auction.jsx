@@ -21,10 +21,10 @@ function CreateAuction() {
     event.preventDefault();
 
     const formData = new FormData();
-    formData.append('title', values.title);
-    formData.append('photo', values.photo);
-    formData.append('price', values.price);
-    formData.append('description', values.description);
+    formData.append('title', values.title || '');
+    formData.append('photo', values.photo || '');
+    formData.append('price', values.price || '');
+    formData.append('description', values.description || '');
 
     try {
       const response = await axios.post('http://localhost:5000/create-auction', formData, {
