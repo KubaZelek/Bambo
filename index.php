@@ -39,7 +39,7 @@
                     }
                     ?>
           </a>
-         <a class="do" href="#" >
+         <a class="do" href="create-auction.php" >
          <img class="image1" src="images/add.svg" alt="addIcon" />
            <span class='s2'>Dodaj ogłoszenie</span></a>
        </div>
@@ -73,57 +73,25 @@
                             ';
                         }
                      }
-                     else{
+                    }else{
                         echo"<p>Nic nie znaleziono</p>";
+                        $result=mysqli_query($baza,"SELECT * FROM auctions");
+                        if(mysqli_num_rows($result)>0){
+                        echo"<p>Zobacz pozostałe produkty</p>";
+                        while($row=mysqli_fetch_assoc($result)){
+                            echo'
+                            <div className="offers-home-page">
+                            <a href="#" className="offer">
+                              <img className="ad-image" src="auction_photos/'.$row['photo'].'" alt="zdjecie przedmiotu" />
+                              <div className="ad-details">
+                                <p className="offer-name">'.$row['title'].'</p>
+                                <p className="price">'.$row['price'].'zł</p>
+                              </div>
+                            </a>
+                            ';
+                        }
                     }
-                     }/*else{
-                      echo'
-                      <div className="offers-home-page">
-                      <a href="#" className="offer">
-                        <img className="ad-image" src="../images/bluza-meska.jpg" alt="przykladowe zdjecie oferty" />
-                        <div className="ad-details">
-                          <p className="offer-name">Bluza 2115 podpisana przez bediego</p>
-                          <p className="price">12zł</p>
-                        </div>
-                      </a>
-                      <a href="#" className="offer">
-                        <img className="ad-image" src="../images/bluza-meska.jpg" alt="przykladowe zdjecie oferty" />
-                        <div className="ad-details">
-                          <p className="offer-name">Bluza 2115 podpisana przez bediego</p>
-                          <p className="price">12zł</p>
-                        </div>
-                      </a>
-                      <a href="#" className="offer">
-                        <img className="ad-image" src="../images/bluza-meska.jpg" alt="przykladowe zdjecie oferty" />
-                        <div className="ad-details">
-                          <p className="offer-name">Bluza 2115 podpisana przez bediego i bialasa na jkoncercie w jalcie</p>
-                          <p className="price">12zł</p>
-                        </div>
-                      </a>
-                      <a href="#" className="offer">
-                        <img className="ad-image" src="../images/bluza-meska.jpg" alt="przykladowe zdjecie oferty" />
-                        <div className="ad-details">
-                          <p className="offer-name">Bluza 2115 podpisana przez bediego</p>
-                          <p className="price">12zł</p>
-                        </div>
-                      </a>
-                      <a href="#" className="offer">
-                        <img className="ad-image" src="../images/bluza-meska.jpg" alt="przykladowe zdjecie oferty" />
-                        <div className="ad-details">
-                          <p className="offer-name">Bluza 2115 podpisana przez bediego</p>
-                          <p className="price">12zł</p>
-                        </div>
-                      </a>
-                      <a href="#" className="offer">
-                        <img className="ad-image" src="../images/bluza-meska.jpg" alt="przykladowe zdjecie oferty" />
-                        <div className="ad-details">
-                          <p className="offer-name">Bluza 2115 podpisana przez bediego</p>
-                          <p className="price">12zł</p>
-                        </div>
-                      </a>
-                    </div>
-                      ';
-                     }*/
+                  }
             ?>
       <footer>
         <table>
