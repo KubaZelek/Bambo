@@ -41,7 +41,7 @@ $db->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bambo</title>
     <link rel="shortcut icon" href="graphics/logodropout.jpg">
-    <meta http-equiv="refresh" content="0.1; url=website.php">
+    <meta http-equiv="refresh" content="0.1; url=index.php">
 </head>
 <body>
 

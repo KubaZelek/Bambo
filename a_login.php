@@ -1,5 +1,5 @@
 <?php
-    $login = $_POST['lusername'];
+    $login = $_POST['username'];
     $plain_password = $_POST['password'];
 
     // Haszowanie hasła
