@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Lis 15, 2023 at 03:39 PM
+-- Generation Time: Lis 19, 2023 at 08:56 PM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -34,7 +34,7 @@ CREATE TABLE `auctions` (
   `price` double(5,2) NOT NULL,
   `description` text DEFAULT NULL,
   `sold_by` varchar(120) NOT NULL,
-  `promotion` enum('0','1') NOT NULL,
+  `promotion` enum('0','1') NOT NULL DEFAULT '0',
   `au_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -45,27 +45,19 @@ CREATE TABLE `auctions` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11),
-  `username` varchar(120) NULL,
-  `password` varchar(255) NULL,
-  `email` varchar(150) NULL,
-  `age` INT NULL,
+  `id` int(11) NOT NULL,
+  `username` varchar(120) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `email` varchar(150) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
   `ac_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `company_name` varchar(120) DEFAULT NULL,
   `NIP` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
-
 --
 -- Indeksy dla zrzutów tabel
 --
-
---
--- Indeksy dla tabeli `auctions`
---
-ALTER TABLE `auctions`
-  ADD PRIMARY KEY (`id`),
 
 --
 -- Indeksy dla tabeli `users`
@@ -76,12 +68,6 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `auctions`
---
-ALTER TABLE `auctions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
