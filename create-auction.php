@@ -8,7 +8,7 @@
 <body>
   <div className="CreateAuction">
         <h1>Dodaj ogłoszenie</h1>
-        <form>
+          <form action='a_createauction.php' method='POST' enctype='multipart/form-data'>
           <label htmlFor="title">Nazwa przedmiotu</label>
           <input type="text" name="title" placeholder="Wpisz nazwę">
 
@@ -16,10 +16,10 @@
           <input type="file" name="photo" accept="image/png, image/jpeg">
 
           <label htmlFor="price">Cena</label>
-          <input type="number" name="price" placeholder="Wpisz cenę [zł]" min='0' onChange={handleChange}>
+          <input type="number" name="price" placeholder="Wpisz cenę [zł]" min='0'>
 
           <label htmlFor="description">Dodaj opis</label>
-          <textarea name="description" placeholder="Opisz przedmiot" onChange={handleChange}>
+          <textarea name="description" placeholder="Opisz przedmiot"></textarea>
 
           <button type="submit">Dodaj ogłoszenie</button>
         </form>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bambo</title>
+  <link rel="stylesheet" href="CSS/login_and_registration.css">
 </head>
 <body>
 <div className="Signup">
@@ -25,7 +26,7 @@
           </a>
 
           <div className="down">
-            <form >
+            <form action='a_signup.php' method='POST' enctype='multipart/form-data'>
               <label htmlFor="username">Nazwa użytkownika<span className='nessesary'>*</span></label><br>
               <input type="text" name="username" placeholder="Wpisz nazwę"><br>
 
@@ -57,7 +58,7 @@
                   <td><input type="radio" name="company" id="company" value="Nie"></td>
               </tr>
               <button type="submit">Przejdź dalej</button>
-              <a href="/accountsignup" className='company_acc'>
+              <a href="accountsignup.php" className='company_acc'>
               <span>Chcesz założyć konto firmowe?</span>
               </a>
             </form>
