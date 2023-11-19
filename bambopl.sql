@@ -34,7 +34,6 @@ CREATE TABLE `auctions` (
   `price` double(5,2) NOT NULL,
   `description` text DEFAULT NULL,
   `sold_by` varchar(120) NOT NULL,
-  `users_id` int(11) NOT NULL,
   `promotion` enum('0','1') NOT NULL,
   `au_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
