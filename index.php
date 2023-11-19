@@ -1,4 +1,5 @@
 <?php
+    error_reporting(E_ALL ^ E_WARNING);
     function uzytkownik()
     {
         if (!isset($_SESSION['login'])) return 'brak';
@@ -82,7 +83,7 @@
                             echo'
                             <div className="offers-home-page">
                             <a href="#" className="offer">
-                              <img className="ad-image" src="auction_photos/'.$row['photo'].'" alt="zdjecie przedmiotu" />
+                              <img className="ad-image" src="'.$row['photo'].'" alt="zdjecie przedmiotu" />
                               <div className="ad-details">
                                 <p className="offer-name">'.$row['title'].'</p>
                                 <p className="price">'.$row['price'].'zł</p>
@@ -92,6 +93,7 @@
                         }
                     }
                   }
+                mysqli_close($baza);
             ?>
       <footer>
         <table>

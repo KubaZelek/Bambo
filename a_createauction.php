@@ -30,6 +30,7 @@ if (move_uploaded_file($uploadedFile["tmp_name"], $targetFile)) {
 }
 
 $db->close();
+error_reporting(E_ALL ^ E_WARNING);
 ?>
 
 ?>
