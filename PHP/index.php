@@ -19,8 +19,10 @@
     <div class="navbar">
         <img class='logohp' src="../images/logo.png" alt="logo"/>
         <div class="search-container">
-            <input placeholder="Ulubione produkty tutaj!" type="text" class="search-bar" />
-            <button class="search-button">Szukaj</button>
+        <form action="index.php" method="post">
+        <input placeholder="Ulubione produkty tutaj!" type="text" class="search-bar" />
+            <input type="submit" value="Szukaj" class="search-button" name="btn">
+          </form> 
             </div>
          <div class="links">
   
@@ -57,10 +59,10 @@
                             echo'
                             <div className="offers-home-page">
                             <a href="#" className="offer">
-                              <img className="ad-image" src="../images/'.$row['photo']'" alt="zdjecie przedmiotu" />
+                              <img className="ad-image" src="../images/'.$row['photo'].'" alt="zdjecie przedmiotu" />
                               <div className="ad-details">
-                                <p className="offer-name">'.$row['tile']'</p>
-                                <p className="price">'.$row['price']'</p>
+                                <p className="offer-name">'.$row['tile'].'</p>
+                                <p className="price">'.$row['price'].'</p>
                               </div>
                             </a>
                             ';
