@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bambo</title>
+  <link rel="stylesheet" href="CSS/login_and_registration.css">
 </head>
 <body>
-  <div className="CreateAuction">
+  <div className="CreateAuction" class="Login">
         <h1>Dodaj ogłoszenie</h1>
           <form action='a_createauction.php' method='POST' enctype='multipart/form-data'>
           <label htmlFor="title">Nazwa przedmiotu</label>
