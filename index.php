@@ -28,10 +28,10 @@
          <?php
                     @session_start();
                     if(isset($_SESSION['login'])){
-                        echo"
-                        <img class='image' src='../images/account.svg' alt='account' />
-                        <span class='s'>'&nbsp;&nbsp;Witaj,'.uzytkownik()</span>
-                        ";
+                        echo'
+                        <img class="image" src="../images/account.svg" alt="account" />
+                        <span class="s">&nbsp;&nbsp;Witaj,'.uzytkownik()'</span>
+                        ';
                     }else{
                         echo"<a class='hp' href='logowanie.html'>
                         <img class='image' src='../images/account.svg' alt='account' />
