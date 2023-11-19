@@ -29,7 +29,7 @@
 
 
             
-            <form onSubmit={handleSubmit}>
+            <form action='a_login.php' method='POST' enctype='multipart/form-data'>
               <label htmlFor="username">Nazwa użytkownika:</label><br />
               <input type="text" name="username" placeholder="Wpisz nazwę"><br /><br />
 
