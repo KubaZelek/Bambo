@@ -52,22 +52,24 @@
                     die("Connection failed: " . $baza->connect_error);
                   }
                     if (isset($_POST['search-bar'])) {
+                      echo '<div class="offers-home-page">';
                         $searchTerm=$_POST['search-bar'];
                      $result=mysqli_query($baza,"SELECT * FROM auctions WHERE title LIKE'%$searchTerm%' OR description LIKE'%$searchTerm%'");
                      if(mysqli_num_rows($result)>0){
                         while($row=mysqli_fetch_assoc($result)){
                             echo'
-                            <div class="offers-home-page">
+                          
                             <a href="#" class="offer">
                               <img class="ad-image" src="../images/'.$row['photo'].'" alt="zdjecie przedmiotu" />
                               <div class="ad-details">
                                 <p class="offer-name">'.$row['tile'].'</p>
                                 <p class="price">'.$row['price'].'</p>
-                              </div>
+                             
                             </a>
                             ';
                         }
                      }
+                     echo '</div>';
                      else{
                         echo"<p>Nic nie znaleziono</p>";
                     }

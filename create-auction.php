@@ -15,14 +15,14 @@ session_start();
   <div className="CreateAuction" class="Login">
         <h1>Dodaj ogłoszenie</h1>
           <form action='a_createauction.php' method='POST' enctype='multipart/form-data'>
-          <label htmlFor="title">Nazwa przedmiotu</label>
-          <input type="text" name="title" placeholder="Wpisz nazwę">
+          <label htmlFor="title">Nazwa przedmiotu  <input type="text" name="title" placeholder="Wpisz nazwę"></label>
+         
 
-          <label htmlFor="photo">Zdjęcie przedmiotu</label>
-          <input type="file" name="photo" accept="image/png, image/jpeg">
+          <label htmlFor="photo">Zdjęcie przedmiotu <input type="file" name="photo" accept="image/png, image/jpeg"></label>
+          
 
-          <label htmlFor="price">Cena</label>
-          <input type="number" name="price" placeholder="Wpisz cenę [zł]" min='0'>
+          <label htmlFor="price">Cena <input type="number" name="price" placeholder="Wpisz cenę [zł]" min='0'></label>
+          
           <input type='hidden' name='sold_by' value = "<?php echo $_SESSION['login']; ?>">
           <label htmlFor="description">Dodaj opis</label>
           <textarea name="description" placeholder="Opisz przedmiot"></textarea>
