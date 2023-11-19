@@ -19,8 +19,10 @@
     <div class="navbar">
         <img class='logohp' src="../images/logo.png" alt="logo"/>
         <div class="search-container">
-            <input placeholder="Ulubione produkty tutaj!" type="text" class="search-bar" />
-            <button class="search-button">Szukaj</button>
+        <form action="index.php" method="post">
+        <input placeholder="Ulubione produkty tutaj!" type="text" class="search-bar" />
+            <input type="submit" value="Szukaj" class="search-button" name="btn">
+          </form> 
             </div>
          <div class="links">
   
