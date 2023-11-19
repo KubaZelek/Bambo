@@ -23,7 +23,7 @@ const Navbar = () => {
   // 
   // TUTAJ ZMIENNE UDAJĄCE SESJĘ- JEŚLI SESJA JEST TRUE, TO WYSWIETLA SIĘ 'WITAJ, IMIE', JESLI NIE, TO ZALOGUJ SIE.
   const [name,setName] = useState('KubaZelek');
-  const [fakeSession, setFakeSession] = useState(true);
+  const [fakeSession, setFakeSession] = useState(false);
   // 
   // 
   // 
@@ -45,7 +45,7 @@ const Navbar = () => {
       <span className='s'>Zaloguj się</span>
     )}
   </Link>
-        <Link className="do" to="/create_auction" >
+        <Link className="do" to="/create-auction" >
         <img className="image1" src={addIcon} alt="addIcon" />
           <span className='s2'>Dodaj ogłoszenie</span></Link>
       </div>

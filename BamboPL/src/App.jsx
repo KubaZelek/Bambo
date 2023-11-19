@@ -24,11 +24,10 @@ function App() {
         <Route path='/' index element={<Navigate to="/home" />} />
         <Route path='/home' element={<Home/>} />
         <Route path="/login" element={<Login />} />
-        <Route path="/create_auction" element={<CreateAuction />} />
+        <Route path="/create-auction" element={<CreateAuction />} />
         <Route path="/signup" element={<Signup/>} />
         <Route path="/profile" element={<ProfilePage/>}/>
-        <Route path="/AccountSignup" element={<AccountSignup/>} />
-        
+        <Route path="/account-signup" element={<AccountSignup/>} />
       </Routes>
     </BrowserRouter>
   </div>

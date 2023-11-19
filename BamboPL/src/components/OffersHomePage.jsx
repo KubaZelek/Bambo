@@ -1,5 +1,6 @@
 import '../css/offer.css';
 import image from '../components/images/bluza-meska.jpg';
+import React, {useState, useEffect} from 'react';
 
 const OffersHomePage = () => {
   const [auctions, setAuctions] = useState([]);
