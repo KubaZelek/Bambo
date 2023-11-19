@@ -18,7 +18,7 @@
         echo "<script>alert('Nazwa użytkownika jest już zajęta. Wybierz inną nazwę.')</script>";
     } else {
         // Dodaj konto, jeśli nazwa użytkownika nie jest zajęta
-        $query = "INSERT INTO users (username, password, email, age) VALUES ('$login', '$hashed_password', '$email', '$age')";
+        $query = "INSERT INTO users (company_name, password, email, NIP) VALUES ('$login', '$hashed_password', '$email', '$NIP')";
         $result = mysqli_query($db, $query);
         if ($result) {
             echo "<script>alert('Pomyślnie zarejestrowano.')</script>";

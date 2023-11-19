@@ -47,6 +47,7 @@
 
               <p className='break'> </p>
 
+              <!---
               <table>
                 <tr>
                   <td colSpan={4}><label htmlFor="company">Konto Firmowe</label></td>
@@ -57,6 +58,7 @@
                   <td><span className='YesNo'>Nie</span></td>
                   <td><input type="radio" name="company" id="company" value="Nie"></td>
               </tr>
+              -->
               <button type="submit">Przejdź dalej</button>
               <a href="accountsignup.php" className='company_acc'>
               <span>Chcesz założyć konto firmowe?</span>
