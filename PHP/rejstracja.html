@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS/login_and_registration.css">
+  <title>Signup</title>
+</head>
+<body>
+
+<div class="Signup">
+
+
+  <!-- Signup Form -->
+  <div class="login">
+    <h1>
+      <a href="logowanie.html">
+        <span>Logowanie</span>
+      </a>
+      <span>/ </span>
+      <a href="rejstracja.html">
+        <span class="underline">Rejstracja</span>
+      </a>
+    </h1>
+
+    <a href="/home">
+      <div class="minilogo">
+        <img src="..\images\Logo_niebieskie_mniejsze.png" alt="Logo" class="imgs">
+      </div>
+    </a>
+
+    <div class="down">
+      <form action="http://localhost:5000/signup" method="post" onSubmit="handleSubmit(event)">
+        <label for="username">Nazwa użytkownika<span class='nessesary'>*</span></label><br>
+        <input type="text" name="username" placeholder="Wpisz nazwę" onChange="handleChange(event)"><br>
+
+        <p class='break'> </p>
+
+        <label for="password">Hasło<span class='nessesary'>*</span></label><br>
+        <input type="password" name="password" placeholder="Wpisz hasło" onChange="handleChange(event)"><br>
+
+        <p class='break'> </p>
+
+        <label for="email">E-mail<span class='nessesary'>*</span></label><br>
+        <input type="text" name="email" placeholder="Wpisz e-mail" onChange="handleChange(event)"><br>
+
+        <p class='break'> </p>
+
+        <label for="age">Wiek użytkownika<span class='nessesary'>*</span></label><br>
+        <input type="number" placeholder="18" name="age" min="13" max="100" step="1" onChange="handleChange(event)"><br>
+
+        <p class='break'> </p>
+
+        <button type="submit">Przejdź dalej</button>
+        <a href="logowanie_firm.html" class='company_acc'>
+          <span>Chesz założyć konto firmowe?</span>
+        </a>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function handleChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    const values = {
+      ...this.values,
+      [name]: name === 'age' ? parseInt(value, 10) : value,
+    };
+
+    // Update the state or perform other actions as needed
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    // Perform form submission logic (e.g., using axios to send data)
+  }
+</script>
+
+</body>
+</html>
