@@ -19,7 +19,7 @@
           </Link>
 
           <div className="down">
-            <form action='accountsignup.php' method='POST' enctype='multipart/form-data'>
+            <form action='a_accountsignup.php' method='POST' enctype='multipart/form-data'>
 
               <label htmlFor="account_name">Nazwa firmy<span className='nessesary'>*</span></label><br />
               <input type="text" name="account_name" placeholder="Wpisz nazwę firmy"><br />
