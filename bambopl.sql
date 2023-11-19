@@ -53,9 +53,6 @@ CREATE TABLE `users` (
   `ac_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `company_name` varchar(120) DEFAULT NULL,
   `NIP` int(10) DEFAULT NULL,
-  `company_account` tinyint(1) NOT NULL
-  `company_name` varchar(120) DEFAULT NULL,
-  `NIP` int(10) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
