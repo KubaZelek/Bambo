@@ -22,7 +22,7 @@
             <form action='a_accountsignup.php' method='POST' enctype='multipart/form-data'>
 
               <label htmlFor="account_name">Nazwa firmy<span className='nessesary'>*</span></label><br />
-              <input type="text" name="account_name" placeholder="Wpisz nazwę firmy"><br />
+              <input type="text" name="company_name" placeholder="Wpisz nazwę firmy"><br />
 
               <p className='break'> </p>
 
