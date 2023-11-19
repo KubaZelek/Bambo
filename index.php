@@ -26,9 +26,11 @@
             </div>
          <div class="links">
   
-          <a class="hp" href="logowanie.html">
-     <img class="image" src="../images/account.svg" alt="account" />
-       <span class='s'>Zaloguj się</span>
+          <?php
+            echo "<a class='hp' href='login.php'>";
+            <img class="image" src="../images/account.svg" alt="account" />
+            <span class='s'>Zaloguj się</span>
+          ?>
     
           </a>
          <a class="do" href="#" >
