@@ -11,13 +11,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/navbar.css">
-    <link rel="stylesheet" href="../CSS/offers.css">
+    <link rel="stylesheet" href="CSS/navbar.css">
+    <link rel="stylesheet" href="CSS/offers.css">
     <title>Bambo.pl - najlepsze ubrania</title>
 </head>
 <body>
     <div class="navbar">
-        <img class='logohp' src="../images/logo.png" alt="logo"/>
+        <img class='logohp' src="images/logo.png" alt="logo"/>
         <div class="search-container">
         <form action="index.php" method="post">
     <input placeholder="Ulubione produkty tutaj!" type="text" class="search-bar" name="search-bar" />
@@ -25,22 +25,28 @@
       </form>
             </div>
          <div class="links">
-  
-          <?php
-            echo "<a class='hp' href='login.php'>";
-            <img class="image" src="../images/account.svg" alt="account" />
-            <span class='s'>Zaloguj się</span>
-          ?>
-    
+         <?php
+                    @session_start();
+                    if(isset($_SESSION['login'])){
+                        echo'
+                        <img class="image" src="images/account.svg" alt="account" />
+                        <span class="s">&nbsp;&nbsp;Witaj,'.uzytkownik().'</span>
+                        ';
+                    }else{
+                        echo"<a class='hp' href='login.php'>
+                        <img class='image' src='images/account.svg' alt='account' />
+                          <span class='s'>Zaloguj się</span>";
+                    }
+                    ?>
           </a>
          <a class="do" href="#" >
-         <img class="image1" src="../images/add.svg" alt="addIcon" />
+         <img class="image1" src="images/add.svg" alt="addIcon" />
            <span class='s2'>Dodaj ogłoszenie</span></a>
        </div>
  
      </div>
      <div class="promotion">
-        <img src="../images/Vector.svg" alt="promotionimage">
+        <img src="images/Vector.svg" alt="promotionimage">
      </div>
      <h1 class="ra">Świeże bułeczki</h1>
      <!-- oferty -->
@@ -58,7 +64,7 @@
                             echo'
                             <div className="offers-home-page">
                             <a href="#" className="offer">
-                              <img className="ad-image" src="../images/'.$row['photo'].'" alt="zdjecie przedmiotu" />
+                              <img className="ad-image" src="auction_photos/'.$row['photo'].'" alt="zdjecie przedmiotu" />
                               <div className="ad-details">
                                 <p className="offer-name">'.$row['title'].'</p>
                                 <p className="price">'.$row['price'].'zł</p>

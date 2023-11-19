@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Lis 19, 2023 at 08:56 PM
+-- Generation Time: Lis 19, 2023 at 09:15 PM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -38,6 +38,13 @@ CREATE TABLE `auctions` (
   `au_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `auctions`
+--
+
+INSERT INTO `auctions` (`id`, `title`, `photo`, `price`, `description`, `sold_by`, `promotion`, `au_created`) VALUES
+(1, 'flagaa tylkowo', 'auction_photos/Tylkowo.jpg', 999.99, 'dsasdas', 'dsds', '0', '2023-11-19 20:13:29');
+
 -- --------------------------------------------------------
 
 --
@@ -56,8 +63,22 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `age`, `ac_created`, `company_name`, `NIP`) VALUES
+(1, 'maciej', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'matroxszabat@gmail.com', 54, '2023-11-19 20:01:46', NULL, NULL),
+(2, 'dsds', 'da3ecf58095a5b24753e6c8b0ee0451dae58f72288889846239669c7f7d28e75', 'dsfsdfsdf', 13, '2023-11-19 20:03:06', NULL, NULL);
+
+--
 -- Indeksy dla zrzutów tabel
 --
+
+--
+-- Indeksy dla tabeli `auctions`
+--
+ALTER TABLE `auctions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeksy dla tabeli `users`
@@ -70,10 +91,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `auctions`
+--
+ALTER TABLE `auctions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
