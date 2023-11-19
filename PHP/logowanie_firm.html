@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS/login_and_registration.css">
+  <title>Account Signup</title>
+</head>
+<body>
+  <div class="AccountSignup">
+
+    <!-- Signup Form -->
+    <div class="login">
+      <h1>Rejstracja kont firmowych</h1>
+
+      <!-- Link to Home -->
+      <a href="/index.html">
+        <div class="minilogo">
+          <img src="..\images\Logo_niebieskie_mniejsze.png" alt="Logo" class="imgs">
+        </div>
+      </a>
+
+      <div class="down">
+        <form id="signupForm">
+
+          <label for="account_name">Nazwa firmy<span class="nessesary">*</span></label><br />
+          <input type="text" name="account_name" placeholder="Wpisz nazwę firmy" onChange="handleChange(event)" /><br />
+
+          <p class="break"> </p>
+
+          <label for="password">Hasło<span class="nessesary">*</span></label><br />
+          <input type="password" name="password" placeholder="Wpisz hasło do konta firmowego" onChange="handleChange(event)" /><br />
+
+          <p class="break"> </p>
+
+          <label for="email">E-mail<span class="nessesary">*</span></label><br />
+          <input type="text" name="email" placeholder="Wpisz e-mail firmowy" onChange="handleChange(event)" /><br />
+
+          <p class="break"> </p>
+
+          <label for="nip">NIP<span class="nessesary">*</span></label><br />
+          <input type="text" name="nip" placeholder="Wpisz NIP swojej firmy" onChange="handleChange(event)" /><br />
+
+          <p class="break"> </p>
+
+          <button type="submit" onclick="handleSubmit(event)">Przejdź dalej</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Axios and React scripts (ensure you include these dependencies) -->
+  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script>
+    // JavaScript logic for handling form events
+    function handleChange(event) {
+      const { name, value } = event.target;
+      // Your logic for handling changes
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = document.getElementById('signupForm');
+      const formData = new FormData(form);
+      
+      const values = {};
+      formData.forEach((value, key) => {
+        values[key] = key === 'age' ? parseInt(value, 10) : value;
+      });
+
+      // Your axios post request
+      axios.post('http://localhost:5000/signup', values)
+        .then((res) => {
+          console.log('Registered!');
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } -->
+  </script>
+</body>
+</html>
