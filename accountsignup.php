@@ -3,40 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Bambo</title>
 </head>
 <body>
-<div className="login">
+  <div className="login">
           <h1>
                Rejstracja kont firmowych
           </h1>
 
           <a href="index.html">
             <div className="minilogo">
-              <img src={logo} alt="Logo" className="imgs" />
+              <img src='images/logo.png' alt="Logo" className="imgs" />
             </div>
           </Link>
 
           <div className="down">
-            <form onSubmit={handleSubmit}>
+            <form action='accountsignup.php' method='POST' enctype='multipart/form-data'>
 
               <label htmlFor="account_name">Nazwa firmy<span className='nessesary'>*</span></label><br />
-              <input type="text" name="account_name" placeholder="Wpisz nazwę firmy" onChange={handleChange} /><br />
+              <input type="text" name="account_name" placeholder="Wpisz nazwę firmy"><br />
 
               <p className='break'> </p>
 
               <label htmlFor="password">Hasło<span className='nessesary'>*</span></label><br />
-              <input type="password" name="password" placeholder="Wpisz hasło do konta firmowego" onChange={handleChange} /><br />
+              <input type="password" name="password" placeholder="Wpisz hasło do konta firmowego"><br />
 
               <p className='break'> </p>
 
               <label htmlFor="email">E-mail<span className='nessesary'>*</span></label><br />
-              <input type="text" name="email" placeholder="Wpisz e-mail firmowy" onChange={handleChange} /><br />
+              <input type="text" name="email" placeholder="Wpisz e-mail firmowy"><br />
 
               <p className='break'> </p>
 
               <label htmlFor="account_name">NIP<span className='nessesary'>*</span></label><br />
-              <input type="text" name="account_name" placeholder="Wpisz NIP swojej firmy" onChange={handleChange} /><br />
+              <input type="text" name="account_name" placeholder="Wpisz NIP swojej firmy"><br />
 
               <p className='break'> </p>
 
@@ -44,11 +44,10 @@
             </form>
         </div>
     </div>
-</div>
+  </div>
 
 </body>
 </html>
-    <div className="AccountSignup">
   
     
         
