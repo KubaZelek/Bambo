@@ -1,6 +1,6 @@
 <?php
-    $login = $_POST['login'];
-    $plain_password = $_POST['haslo'];
+    $login = $_POST['lusername'];
+    $plain_password = $_POST['password'];
 
     // Haszowanie hasła
     $hashed_password = hash('sha256', $plain_password);
@@ -11,7 +11,7 @@
     $login = mysqli_real_escape_string($db, $login);
 
     // Pobranie zahashowanego hasła z bazy danych
-    $query = "SELECT password FROM accounts WHERE login ='$login'";
+    $query = "SELECT password FROM users WHERE username ='$login'";
     $result = mysqli_query($db, $query);
 
     if ($result) {

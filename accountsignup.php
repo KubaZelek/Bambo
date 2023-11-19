@@ -37,7 +37,7 @@
               <p className='break'> </p>
 
               <label htmlFor="account_name">NIP<span className='nessesary'>*</span></label><br />
-              <input type="text" name="account_name" placeholder="Wpisz NIP swojej firmy"><br />
+              <input type="text" name="NIP" placeholder="Wpisz NIP swojej firmy"><br />
 
               <p className='break'> </p>
 

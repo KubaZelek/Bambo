@@ -46,26 +46,19 @@ CREATE TABLE `auctions` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `username` varchar(120) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `age` INT NOT NULL,
+  `id` int(11),
+  `username` varchar(120) NULL,
+  `password` varchar(255) NULL,
+  `email` varchar(150) NULL,
+  `age` INT NULL,
   `ac_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `company_name` varchar(120) DEFAULT NULL,
   `NIP` int(10) DEFAULT NULL,
   `company_account` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-CREATE TABLE `company_users` (
-  `id` int(11) NOT NULL,
   `company_name` varchar(120) DEFAULT NULL,
   `NIP` int(10) DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `ac_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 
 --
@@ -84,8 +77,6 @@ ALTER TABLE `auctions`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `company_users`
-  ADD PRIMARY KEY (`id`);
 --
 -- AUTO_INCREMENT for dumped tables
 --

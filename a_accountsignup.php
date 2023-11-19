@@ -1,8 +1,8 @@
 <?php
-    $login = $_POST['username'];
+    $login = $_POST['company_name'];
     $plain_password = $_POST['password'];
     $email = $_POST['email'];
-    $age = $_POST['age'];
+    $NIP = $_POST['NIP'];
 
     $hashed_password = hash('sha256', $plain_password);
 
