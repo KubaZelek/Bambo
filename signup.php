@@ -7,45 +7,45 @@
   <link rel="stylesheet" href="CSS/login_and_registration.css">
 </head>
 <body>
-<div className="Signup">
-        <div className="login">
+<div class="Signup">
+        <div class="login">
           <h1>
             <a href="login.php">
               <span>Logowanie</span>
             </a>
             <span>/ </span>
             <a href="signup.php">
-              <span className="underline">Rejstracja</span>
+              <span class="underline">Rejstracja</span>
             </a>
           </h1>
 
           <a href="index.php">
-            <div className="minilogo">
-              <img src="images/logo.png" alt="Logo" className="imgs" />
+            <div class="minilogo">
+              <img src="images\Logo_niebieskie_mniejsze.png" alt="Logo" class="imgs" />
             </div>
           </a>
 
-          <div className="down">
+          <div class="down">
             <form action='a_signup.php' method='POST' enctype='multipart/form-data'>
-              <label htmlFor="username">Nazwa użytkownika<span className='nessesary'>*</span></label><br>
+              <label htmlFor="username">Nazwa użytkownika<span class='nessesary'>*</span></label><br>
               <input type="text" name="username" placeholder="Wpisz nazwę"><br>
 
-              <p className='break'> </p>
+              <p class='break'> </p>
 
-              <label htmlFor="password">Hasło<span className='nessesary'>*</span></label><br>
+              <label htmlFor="password">Hasło<span class='nessesary'>*</span></label><br>
               <input type="password" name="password" placeholder="Wpisz hasło"><br>
 
-              <p className='break'> </p>
+              <p class='break'> </p>
 
-              <label htmlFor="email">E-mail<span className='nessesary'>*</span></label><br>
+              <label htmlFor="email">E-mail<span class='nessesary'>*</span></label><br>
               <input type="text" name="email" placeholder="Wpisz e-mail"><br>
 
-              <p className='break'> </p>
+              <p class='break'> </p>
 
-              <label htmlFor="age">Wiek użytkownika<span className='nessesary'>*</span></label><br>
+              <label htmlFor="age">Wiek użytkownika<span class='nessesary'>*</span></label><br>
               <input type="number" placeholder="18" name="age" min="13" max="100" step="1"><br>
 
-              <p className='break'> </p>
+              <p class='break'> </p>
 
               <!---
               <table>
@@ -53,14 +53,14 @@
                   <td colSpan={4}><label htmlFor="company">Konto Firmowe</label></td>
                 </tr>
                 <tr>
-                  <td><span className='YesNo'>Tak</span></td>
+                  <td><span class='YesNo'>Tak</span></td>
                   <td><input type="radio" name="company" id="company" value="Tak"></td>
-                  <td><span className='YesNo'>Nie</span></td>
+                  <td><span class='YesNo'>Nie</span></td>
                   <td><input type="radio" name="company" id="company" value="Nie"></td>
               </tr>
               -->
               <button type="submit">Przejdź dalej</button>
-              <a href="accountsignup.php" className='company_acc'>
+              <a href="accountsignup.php" class='company_acc'>
               <span>Chcesz założyć konto firmowe?</span>
               </a>
             </form>

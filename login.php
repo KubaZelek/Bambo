@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="CSS/login_and_registration.css">
 </head>
 <body>
-    <div className="Login">
-        <div className='all-rest'>
-          <div className="login">
+    <div class="Login">
+        <div class='all-rest'>
+          <div class="login">
             
 
 
@@ -17,15 +17,15 @@
 
             <a href="index.php">
 
-              <div className="minilogo">
+              <div class="minilogo">
 
-                <img src='images/logo.png' alt='logo' className='imgs'/>
+                <img src='images\Logo_niebieskie_mniejsze.png' alt='logo' class='imgs'/>
 
               </div>
 
               </a>
             
-            <div className='down'>
+            <div class='down'>
 
 
             
@@ -33,7 +33,7 @@
               <label htmlFor="username">Nazwa użytkownika:</label><br />
               <input type="text" name="username" placeholder="Wpisz nazwę"><br /><br />
 
-              <p className='break'> </p>
+              <p class='break'> </p>
 
               <label htmlFor="password">Hasło:</label><br />
               <input type="password" name="password" placeholder="Wpisz hasło"><br />
