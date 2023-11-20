@@ -46,63 +46,51 @@
        </div>
  
      </div>
-     <div class="promotion">
+    <div class="promotion">
         <img src="images/Vector.svg" alt="promotionimage">
-     </div>
-     <h1 class="ra">Świeże bułeczki</h1>
-     <!-- oferty -->
-     <?php
-            @session_start();
-                 $baza= mysqli_connect('localhost','root','','bambopl');
-                 if ($baza->connect_error) {
-                    die("Connection failed: " . $baza->connect_error);
-                  }
-                    if (isset($_POST['search-bar'])) {
-                        $searchTerm=$_POST['search-bar'];
-                     $result=mysqli_query($baza,"SELECT * FROM auctions WHERE title LIKE'%$searchTerm%' OR description LIKE'%$searchTerm%'");
-                     if(mysqli_num_rows($result)>0){
-                        while($row=mysqli_fetch_assoc($result)){
-                            echo'
-                            <div className="offers-home-page">
-                            <a href="#" className="offer">
-                              <img className="ad-image" src="auction_photos/'.$row['photo'].'" alt="zdjecie przedmiotu" />
-                              <div className="ad-details">
-                                <p className="offer-name">'.$row['title'].'</p>
-                                <p className="price">'.$row['price'].'zł</p>
-                              </div>
-                            </a>
-                            ';
-                        }
-                     }
-                    }else{
-                        echo"<p>Nic nie znaleziono</p>";
-                        $result=mysqli_query($baza,"SELECT * FROM auctions");
-                        if(mysqli_num_rows($result)>0){
-                        echo"<p>Zobacz pozostałe produkty</p>";
-                        while($row=mysqli_fetch_assoc($result)){
-                            echo'
-                            <div className="offers-home-page">
-                            <a href="#" className="offer">
-                              <img className="ad-image" src="'.$row['photo'].'" alt="zdjecie przedmiotu" />
-                              <div className="ad-details">
-                                <p className="offer-name">'.$row['title'].'</p>
-                                <p className="price">'.$row['price'].'zł</p>
-                              </div>
-                            </a>
-                            ';
-                        }
-                    }
-                  }
-                mysqli_close($baza);
-            ?>
-      <footer>
+    </div>
+    
+    <h1 class="ra">Świeże bułeczki</h1>
+    
+    <!-- oferty -->
+    <?php
+        @session_start();
+        $baza = mysqli_connect('localhost', 'root', '', 'bambopl');
+        if ($baza->connect_error) {
+            die("Connection failed: " . $baza->connect_error);
+        }
+
+        if (isset($_POST['search-bar'])) {
+            // Your search code here
+        } elseif (!isset($_POST['search-bar'])) {
+            $result = mysqli_query($baza, "SELECT * FROM auctions");
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    // Include a link with the item ID in the URL
+                    echo '
+                    <div class="offers-home-page">
+                        <a href="item_details.php?id=' . $row['id'] . '" class="offer">
+                            <img class="ad-image" src="' . $row['photo'] . '" alt="zdjecie przedmiotu" />
+                            <div class="ad-details">
+                                <p class="offer-name">' . $row['title'] . '</p>
+                                <p class="price">' . $row['price'] . 'zł</p>
+                            </div>
+                        </a>
+                    </div>';
+                }
+            }
+        }
+        mysqli_close($baza);
+    ?>
+    
+    <footer>
         <table>
-          <tr>
-              <td>Olsztyn Bałtycka 151</td>
-              <td>Tel: 999 999 999</td>
-              <td>Email: BamboPl@gmail.com</td>
-          </tr>
-      </table>
-      </footer>
+            <tr>
+                <td>Olsztyn Bałtycka 151</td>
+                <td>Tel: 999 999 999</td>
+                <td>Email: BamboPl@gmail.com</td>
+            </tr>
+        </table>
+    </footer>
 </body>
 </html>
