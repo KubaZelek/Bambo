@@ -7,13 +7,16 @@ body {
 .offers-home-page {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex: 33%;
   }
   
   .offer {
     position: relative;
-    margin: 2rem; /* Reduced margin for smaller elements */
-    width: calc(30% - 2 * 5rem); /* Adjusted width considering reduced margins */
-    flex-shrink: 0; /* Ensure the width is fixed */
+    margin: 2rem; 
+    width: calc(30% - 2 * 5rem); 
+    flex-shrink: 0; 
     color: black;
   }
   
@@ -79,6 +82,7 @@ body {
       flex-direction: column;
       margin: 0;
       width: 80%;
+      flex: 100%;
     }
   
     .offer {

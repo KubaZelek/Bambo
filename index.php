@@ -30,13 +30,16 @@
                     @session_start();
                     if(isset($_SESSION['login'])){
                         echo'
+                        <a class="hp" href="#">
                         <img class="image" src="images/account.svg" alt="account" />
-                        <span class="s">&nbsp;&nbsp;Witaj,'.uzytkownik().'</span>
+                        <span class="s">&nbsp;&nbsp;Witaj, '.uzytkownik().'!</span><a class="hp" id="logout" href="logout.php">Wyloguj się</a></a>
+                 
                         ';
                     }else{
                         echo"<a class='hp' href='login.php'>
                         <img class='image' src='images/account.svg' alt='account' />
-                          <span class='s'>Zaloguj się</span>";
+                          <span class='s'>Zaloguj się</span></a>";
+                          
                     }
                     ?>
           </a>
@@ -51,7 +54,7 @@
     </div>
     
     <h1 class="ra">Świeże bułeczki</h1>
-    
+    <div class="offers-home-page">
     <!-- oferty -->
     <?php
         @session_start();
@@ -68,7 +71,7 @@
                 while ($row = mysqli_fetch_assoc($result)) {
                     // Include a link with the item ID in the URL
                     echo '
-                    <div class="offers-home-page">
+                
                         <a href="item_details.php?id=' . $row['id'] . '" class="offer">
                             <img class="ad-image" src="' . $row['photo'] . '" alt="zdjecie przedmiotu" />
                             <div class="ad-details">
@@ -76,13 +79,13 @@
                                 <p class="price">' . $row['price'] . 'zł</p>
                             </div>
                         </a>
-                    </div>';
+                   ';
                 }
             }
         }
         mysqli_close($baza);
     ?>
-    
+    </div>
     <footer>
         <table>
             <tr>
