@@ -1,3 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambo</title>
+    <link rel="stylesheet" href="CSS/offers.css">
+    <link rel="stylesheet" href="CSS/item.css">
+</head>
+<body>
+<a href="index.php">
+
+<div class="minilogo">
+
+  <img src='images\Logo_niebieskie_mniejsze.png' alt='logo' class='imgs'/>
+
+</div>
+
+</a>
+
 <?php
     // item_details.php
 
@@ -45,17 +66,5 @@
 
     mysqli_close($baza);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bambo</title>
-    <link rel="stylesheet" href="CSS/offers.css">
-</head>
-<body>
-    
-
-
 </body>
 </html>
